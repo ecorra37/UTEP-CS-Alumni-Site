@@ -1,0 +1,66 @@
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#navigation li  {
+    list-style: none;
+    display: block;
+    float: left;
+    margin: 1em;
+}
+
+#highlight{
+    background: #532de5;
+}
+
+#login_input{
+    position: fixed;
+    top: 40px;
+    right: 40px;
+}
+
+#navigation li a {
+    text-shadow: 0 2px 1px rgba(0,0,0,0.5);
+    display: block;
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1.6em;
+    margin: 0 .5em;
+}
+
+.rectangle {
+    background: #2643e7;
+    height: 62px;
+    position: relative;
+    -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 500; /* the stack order: foreground */
+    margin: 3em 0;
+}
+
+html{
+    background: #eaf4fb url('<span class="skimlinks-unlinked">bottom_bg.jpg</span>') bottom center no-repeat;
+}
+
+body{
+    background: transparent url('<span class="skimlinks-unlinked">top_bg.png</span>') top center no-repeat;
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+}
+
+#navigation_container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+#navigation li a:hover {
+    margin-top: 2px;
+}
