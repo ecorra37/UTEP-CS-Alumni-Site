@@ -18,7 +18,7 @@ CREATE TABLE users (
 		gender		  	ENUM(‘f’,’m’,’u’)	NOT NULL DEFAULT ‘u’,
 		city		    	VARCHAR(20)		NULL,
 		employed	  	ENUM(‘y’,’n’,’u’)	NOT NULL DEFAULT ‘u’,
-		email		    	VARCHAR(30)		NULL,
+		email		    	VARCHAR(30)		NOT NULL,
 		image		    	BLOB			NULL,
 		PRIMARY KEY (user_id),
     		INDEX (master_id)
