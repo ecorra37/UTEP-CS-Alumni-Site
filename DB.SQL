@@ -33,31 +33,31 @@ CREATE TABLE messages (
 		PRIMARY KEY (msg_id),
 		INDEX (user_id_sender, user_id_receiver)
 	) ENGINE=InnoDB;
-CREATE TABLE invitations (
-		user_id_invite		INT(11)			    NOT NULL,
+CREATE TABLE friend_requests (
+		user_id_invite		INT(11)			NOT NULL,
 		status		      	ENUM(‘a’,’n’)		NOT NULL DEFAULT ‘n’, //a=accepted n = not
-	  user_id_invited		INT(11)		    	NOT NULL,
+	  	user_id_invited		INT(11)		    	NOT NULL,
 		INDEX (user_id_invite, user_id_invited)
 	) ENGINE=InnoDB;
 CREATE TABLE admin (
 		username	    	VARCHAR(15)	    	NOT NULL,
-		password	    	VARCHAR(15)		    NOT NULL,
-		first		  	    VARCHAR(15)	    	NOT NULL,
+		password	    	VARCHAR(15)		NOT NULL,
+		first		    	VARCHAR(15)	    	NOT NULL,
 		last		      	VARCHAR(15)	    	NOT NULL,
 		title		      	VARCHAR(15)	    	NOT NULL,
 		PRIMARY KEY (username)
 	) ENGINE=InnoDB;
 CREATE TABLE friends (
-		user_id		    	INT(11)   		  	NOT NULL,
-		user_id_friend	INT(11)		    	  NOT NULL,
+		user_id		    	INT(11)   		NOT NULL,
+		user_id_friend		INT(11)		    	NOT NULL,
 		INDEX (user_id, user_id_friend)
 	) ENGINE=InnoDB;
 CREATE TABLE items (
-		item_id			    INT			          NOT NULL AUTO_INCREMENT,
-		category		    VARCHAR(30)		    NOT NULL,
-		product_name		VARCHAR(30)		    NOT NULL,
-		description		  VARCHAR(255)	    NOT NULL,
-		quantity			  INT(15)			      NOT NULL,
+		item_id			INT			NOT NULL AUTO_INCREMENT,
+		category		VARCHAR(30)		NOT NULL,
+		product_name		VARCHAR(30)		NOT NULL,
+		description		VARCHAR(255)		NOT NULL,
+		quantity		INT(15)			NOT NULL,
 		PRIMARY KEY (item_id)
 	) ENGINE=InnoDB;
 
