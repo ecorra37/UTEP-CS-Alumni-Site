@@ -1,4 +1,13 @@
-CREATE TABLE students_master ( //already provided by Longpre
+CREATE TABLE master ( //already provided by Longpre
+		academicyear		VARCHAR(30)	  	NULL,
+		term	  		INT(11)		    	NULL,
+		last		        VARCHAR(30)	  	NULL,
+		first	  	        VARCHAR(30)	  	NULL,
+		major		       	VARCHAR(30)	  	NULL,
+		level		        VARCHAR(30)	  	NULL,
+		degree		    	VARCHAR(30)	  	NULL
+	) ENGINE=InnoDB;
+CREATE TABLE students_master ( //Not NEEDED
 		master_id 		INT 			NOT NULL AUTO_INCREMENT,
 		academicyear		VARCHAR(12)	  	NULL,
 		term	  		INT(11)		    	NULL,
