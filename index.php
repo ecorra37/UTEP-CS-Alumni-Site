@@ -25,7 +25,7 @@
             <li><a href="index.html"><span id="highlight">Home</span></a></li>
             <li><a href="Store.html">Store</a></li>
             <li><a href="Donate.html">Donate</a></li>
-            <li><a href="Find.html">Find Graduate</a></li>
+            <li><a href="Find.php">Find Graduate</a></li>
             <li><a href="AboutUs.html">About</a></li>
             <li><a href="">Contact Us</a></li>
         </ul>
