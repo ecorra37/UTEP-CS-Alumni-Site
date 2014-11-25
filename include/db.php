@@ -1,5 +1,5 @@
 <?PHP
-	require_once("./configSite.php");
+	require_once("./include/configSite.php");
 
 	$configSite = new ConfigSite();
 
