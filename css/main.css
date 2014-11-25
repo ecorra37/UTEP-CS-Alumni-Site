@@ -1,4 +1,6 @@
-
+.main_content{
+	width: 800px;
+}
 
 ul {
     list-style-type: none;
@@ -6,6 +8,7 @@ ul {
     padding: 0;
     overflow: hidden;
 }
+
 #navigation li  {
     list-style: none;
     display: block;
@@ -64,3 +67,4 @@ body{
 #navigation li a:hover {
     margin-top: 2px;
 }
+

@@ -1,8 +1,3 @@
-<?PHP
-	require_once("./include/db.php");
-	
-?>
-
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -11,7 +6,9 @@
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/main.js" ></script>
 	</head>
+	
 	<body>
+		
 		<div id="navigation_container">
 			<div class="rectangle">
 				<ul id="navigation">
@@ -24,10 +21,15 @@
 				</ul>
 			</div>
 		</div>
-
-		<div>
-			<?PHP include './login.php'; ?>
-		</div>
 		
+		<div class="main_content">
+			<div>
+				<?PHP include './login.php'; ?>
+			</div>
+			
+			<div>
+				<?PHP include './search.php'; ?>
+			</div>
+		</div>
 	</body>
 </html>
