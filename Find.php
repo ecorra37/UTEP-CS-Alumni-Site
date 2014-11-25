@@ -1,3 +1,8 @@
+<?PHP
+	require_once("./db.php");
+	
+?>
+
 <!DOCTYPE html>
 <html>
 	<head lang="en">
