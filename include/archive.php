@@ -891,10 +891,6 @@ DO NOT import to the School's server*/
 	/*----(End) Password Management----*/
 	
     /*----(Start) Other Management----*/
-	function GetSelfScript(){
-		return htmlentities($_SERVER['PHP_SELF']);
-	}    
-
 	function SafeDisplay($value_name){
 		if(empty($_POST[$value_name])){
 			return'';
@@ -907,13 +903,7 @@ DO NOT import to the School's server*/
 		exit;
 	}
 
-	function GetErrorMessage(){
-		if(empty($this->error_message)){
-			return '';
-		}
-		$errormsg = nl2br(htmlentities($this->error_message));
-		return $errormsg;
-	}    
+	   
 
 	function GetFromAddress(){
 		if(!empty($this->from_address)){

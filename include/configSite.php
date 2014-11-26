@@ -45,13 +45,14 @@ class ConfigSite{
 		if(!isset($_POST['submitted'])){
 			return false;
 		}
-
-		$formvars = array();
-
-		if(!$this->ValidateSearchSubmission()){
+		
+		if(!isset($_POST['searchGrad'])){
+			echo "Please Fill Out The...";
 			return false;
 		}
 		
+		$formvars = array();
+
 		$this->CollectSearchSubmission($formvars);
 		
 		if(!$this->searchGradHelper($formvars)){
@@ -64,31 +65,8 @@ class ConfigSite{
 		return $result;
 	}
 	
-	function ValidateSearchSubmission(){
-		//This is a hidden input field. Humans won't fill this field.
-		if(!empty($_POST[$this->GetSpamTrapInputName()]) ){
-			//The proper error is not given intentionally
-			$this->HandleError("Automated submission prevention: case 2 failed");
-			return false;
-		}
-
-		$validator = new FormValidator();
-		$validator->addValidation("eventSearch", "req", "Search Field is Empty!");
-
-		if(!$validator->ValidateForm()){
-			$error = '';
-			$error_hash = $validator->GetErrors();
-			foreach($error_hash as $inpname => $inp_err){
-				$error .= $inpname.':'.$inp_err."\n";
-			}
-			$this->HandleError($error);
-			return false;
-		}        
-		return true;
-	}
-	
 	function CollectSearchSubmission(&$formvars){
-		$formvars['eventSearch'] = $this->Sanitize($_POST['eventSearch']);
+		$formvars['searchGrad'] = $this->Sanitize($_POST['searchGrad']);
 	}
 	
 	function searchGradHelper(&$formvars){
@@ -97,23 +75,14 @@ class ConfigSite{
 			return false;
 		}
 		
-		$formvars['eventSearch'] = strtolower($formvars['eventSearch']);
+		$formvars['searchGrad'] = strtolower($formvars['searchGrad']);
 		
-		$sql = "SELECT * FROM REGEXP '^f.*$';";
-		
-		$sql = "SELECT * FROM Events WHERE Ecity LIKE '" . $formvars['eventSearch'] . "' UNION ALL 
-		SELECT * FROM Events WHERE Estate LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Evename LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Ezip LIKE '" . $formvars['eventSearch'] . "'UNION ALL
-		SELECT * FROM Events WHERE EphoneNumber LIKE '" . $formvars['eventSearch'] . "'UNION ALL
-		SELECT * FROM Events WHERE Edescription LIKE '" . $formvars['eventSearch'] . "' UNION ALL 
-		SELECT * FROM Events WHERE Etype LIKE '" . $formvars['eventSearch'] . "' UNION ALL
-		SELECT * FROM Events WHERE Ehashtag  LIKE '" . $formvars['eventSearch'] . "'ORDER BY EstartDate";
+		$sql = "SELECT * FROM master WHERE * LIKE '%" . $formvars['searchGrad']. "%';";
 		
 		$result = mysql_query($sql, $this->connection);
 		
 		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError("Did Not Find Any Results For " . $formvars['eventSearch']);
+			$this->HandleError("Did Not Find Any Results For " . $formvars['searchGrad']);
 			return false;
 		}
 		
@@ -169,5 +138,17 @@ class ConfigSite{
         return $str;
     }
 	/*----------(End) Main Operations----------*/
+	
+	function GetSelfScript(){
+		return htmlentities($_SERVER['PHP_SELF']);
+	}
+	
+	function GetErrorMessage(){
+		if(empty($this->error_message)){
+			return '';
+		}
+		$errormsg = nl2br(htmlentities($this->error_message));
+		return $errormsg;
+	} 
 }
 ?>
