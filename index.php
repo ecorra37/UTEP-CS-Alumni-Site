@@ -1,4 +1,9 @@
+ <?php
+ include('include/db.php');
+session_start();
 
+$login_user= $_SESSION['login_user'];
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -19,27 +24,38 @@
     <body>
     <div id="navigation_container">
          <div class="rectangle">
-
-
         <ul id="navigation">
-            <li><a href="index.html"><span id="highlight">Home</span></a></li>
-            <li><a href="Store.html">Store</a></li>
-            <li><a href="Donate.html">Donate</a></li>
+
+            <li><a href="index.php"><span id="highlight">Home</span></a></li>
+            <li><a href="Store.php">Store</a></li>
             <li><a href="Find.php">Find Graduate</a></li>
-            <li><a href="AboutUs.html">About</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="About.php">About Us</a></li>
+                       <?php if ((isset($_SESSION['login_status']))) {
+?>
+
+            <li> <a href="loginprofile.php">Profile</a></li>
+              <li> <a href="signout.php">Sign Out</a></li>
         </ul>
     </div>
+<?php }
+else {
+?>
+</div>
 
-<span id="login_input">
-    <form name="Login_Form" action="validate.php" onsubmit="return validateForm()" method="post">
-        Username:<input type="text" name="username"><br>
-       Password: <input type="password" name="password"><br>
-        <input type="submit" value="Login" name="login_submit">
-        <p id="Message">
-    </form>
+
+
+<div>
+			<span id="login_input">
+	<form name="Login_Form" action="validate.php" onsubmit="return validateForm()" method="post">
+		User Name:<input type="text" name="username"><br>
+		Password:<input type="password" name="password"><br>
+		<input type="submit" value="Login" name="login_submit">
+		<p id="Message"></p>
+	</form>
 </span>
-
+			</div>
+            
+       <?php } ?>     
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
