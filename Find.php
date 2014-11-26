@@ -1,3 +1,9 @@
+ <?php
+ include('include/db.php');
+session_start();
+
+$login_user= $_SESSION['login_user'];
+?>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -8,19 +14,25 @@
 	</head>
 	
 	<body>
-		
-		<div id="navigation_container">
-			<div class="rectangle">
-				<ul id="navigation">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="Profile.html">Profile</a></li>
-					<li><a href="Store.html">Store</a></li>
-					<li><a href="Donate.html">Donate</a></li>
-					<li><a href="Find.php"><span id="highlight">Find Graduate</span></a></li>
-					<li><a href="AboutUs.html">About</a></li>
-				</ul>
-			</div>
-		</div>
+	<div id="navigation_container">
+         <div class="rectangle">
+        <ul id="navigation">
+
+            <li><a href="index.php"><span id="highlight">Home</span></a></li>
+            <li><a href="Store.php">Store</a></li>
+            <li><a href="Find.php">Find Graduate</a></li>
+            <li><a href="About.php">About Us</a></li>
+                       <?php if ((isset($_SESSION['login_status']))) {
+?>
+
+            <li> <a href="loginprofile.php">Profile</a></li>
+              <li> <a href="signout.php">Sign Out</a></li>
+        </ul>
+    </div>
+<?php } ?>
+
+
+</div>
 		
 		<div class="main_content">
 			<div>
