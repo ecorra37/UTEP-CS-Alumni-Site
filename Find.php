@@ -1,7 +1,7 @@
 <?php
 	include('include/db.php');
 	session_start();
-	$login_user= $_SESSION['login_user'];
+	$login_user = $_SESSION['login_user'];
 ?>
 
 <!DOCTYPE html>

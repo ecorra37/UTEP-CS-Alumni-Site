@@ -1,7 +1,38 @@
 <?PHP
 	require_once("./include/db.php");
+	require_once("./include/pager.php");
+	
 	if(isset($_POST['submitted'])){
 		$info = $configSite->searchGrad();
+		
+		//PAGER
+		//instantiation of class
+		$p = new Pager;
+
+		/* Show many results per page? */
+		$limit = 20;
+
+		/* Find the start depending on $_GET['page'] (declared if it's null) */
+		$start = $p->findStart($limit);
+		
+		$dbh = mysql_connect ("localhost", "root", "sk@t3low1432") or die ('I cannot connect to the database because: ' . mysql_error());
+		
+		mysql_select_db("cs5339team9fa14");
+		
+		/* Find the number of rows returned from a query; Note: Do NOT use a LIMIT clause in this query */
+		$count = mysql_num_rows($info); 
+		
+		/* Find the number of pages based on $count and $limit */
+		$pages = $p->findPages($count, $limit);
+		
+		$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT " . $start . ", " . $limit;
+		
+		$result = mysql_query($dbQuery) or die("Couldn't get file list");
+		
+		$num_rows = 0;
+		
+		/* Now get the page list and echo it */
+		$pagelist = $p->pageList($_GET['page'], $pages);
 	}
 ?>
 
@@ -17,23 +48,22 @@
 <?PHP if(isset($_POST['submitted'])){ ?>
 <table>
 	<thead>
-		<td>
-			test
-		</td>
-		<td>
-			test2
-		</td>
-		<td>
-			test3
-		</td>
-		<td>
-			test4
-		</td>
-		<td>
-			test5
-		</td>
+		<td>Academic Year</td>
+		<td>Term</td>
+		<td>Last</td>
+		<td>First</td>
+		<td>Major</td>
+		<td>Level</td>
+		<td>Degree</td>
 	</thead>
-	<?PHP while($row = mysql_fetch_assoc($info)){?>
+	<?PHP 
+		/* Or you can use a simple "Previous | Next" listing if you don't want the numeric page listing */
+		$next_prev = $p->nextPrev($_GET['page'], $pages); 
+		echo "<div id='division'>" . $next_prev .  " </div>";
+		/* From here you can do whatever you want with the data from the $result link. */
+		
+		while($row = mysql_fetch_assoc($result)){
+			$num_rows++;?>
 	<tr>
 		<td>
 			<?PHP echo $row['academicyear']?>

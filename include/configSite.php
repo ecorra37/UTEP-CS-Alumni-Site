@@ -75,7 +75,7 @@ class ConfigSite{
 			return false;
 		}
 		
-		$sql = "SELECT * FROM ". $this->tablename5 . " LIMIT 10;";
+		$sql = "SELECT * FROM ". $this->tablename5;
 		
 		$result = mysql_query($sql, $this->connection);
 		
