@@ -12,12 +12,10 @@
 		<div id="navigation_container">
 			<div class="rectangle">
 				<ul id="navigation">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="Profile.html">Profile</a></li>
-					<li><a href="Store.html">Store</a></li>
-					<li><a href="Donate.html">Donate</a></li>
-					<li><a href="Find.php"><span id="highlight">Find Graduate</span></a></li>
-					<li><a href="AboutUs.html">About</a></li>
+					<li><a href="index.php"><span id="highlight">Home</span></a></li>
+            <li><a href="Store.php">Store</a></li>
+            <li><a href="Find.php">Find Graduate</a></li>
+            <li><a href="About.php">About Us</a></li>
 				</ul>
 			</div>
 		</div>

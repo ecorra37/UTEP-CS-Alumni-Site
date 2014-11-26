@@ -75,9 +75,7 @@ class ConfigSite{
 			return false;
 		}
 		
-		$formvars['searchGrad'] = strtolower($formvars['searchGrad']);
-		
-		$sql = "SELECT * FROM master WHERE * LIKE '%" . $formvars['searchGrad']. "%';";
+		$sql = "SELECT * FROM ". $this->tablename5 . " LIMIT 10;";
 		
 		$result = mysql_query($sql, $this->connection);
 		

@@ -33,7 +33,7 @@
 			test5
 		</td>
 	</thead>
-	<?PHP while($row = mysqli_fetch_assoc($info)){?>
+	<?PHP while($row = mysql_fetch_assoc($info)){?>
 	<tr>
 		<td>
 			<?PHP echo $row['academicyear']?>
@@ -57,6 +57,8 @@
 			<?PHP echo $row['degree'] ?>
 		</td>
 	</tr>
-	<?PHP } 
-		}?>
+	<?PHP } ?>
+		
+		
+	<?PHP	}?>
 </table>
