@@ -135,6 +135,14 @@ class ConfigSite{
         }
         return $str;
     }
+	
+	function addUser(){
+		
+	}
+	
+	function alreadyAdded($last, $first){
+		
+	}
 	/*----------(End) Main Operations----------*/
 	
 	function GetSelfScript(){
