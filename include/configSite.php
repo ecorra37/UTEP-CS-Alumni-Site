@@ -41,46 +41,35 @@ class ConfigSite{
 	
     /*----------(Start) Main Operations----------*/
 	/*----------Search Graduates----------*/
-	function searchGrad(){
-		if(!isset($_POST['submitted'])){
-			return false;
-		}
+	function searchGrad($searchGrad){
+		echo $searchGrad;
 		
-		if(!isset($_POST['searchGrad'])){
+		if(!isset($searchGrad)){
 			echo "Please Fill Out The...";
 			return false;
 		}
 		
-		$formvars = array();
-
-		$this->CollectSearchSubmission($formvars);
-		
-		if(!$this->searchGradHelper($formvars)){
-			//$this->HandleError("Did not Find any Results by 2 " . $formvars['eventSearch']);
+		if(!$this->searchGradHelper($searchGrad)){
 			return false;
 		} else {
-			$result = $this->searchGradHelper($formvars);
+			$result = $this->searchGradHelper($searchGrad);
 		}
 
 		return $result;
 	}
 	
-	function CollectSearchSubmission(&$formvars){
-		$formvars['searchGrad'] = $this->Sanitize($_POST['searchGrad']);
-	}
-	
-	function searchGradHelper(&$formvars){
+	function searchGradHelper($searchGrad){
 		if(!$this->DBLogin()){
 			$this->HandleError("Database login failed!");
 			return false;
 		}
 		
-		$sql = "SELECT * FROM ". $this->tablename5;
+		$sql = "SELECT * FROM ". $this->tablename5 . "WHERE * LIKE " . $searchGrad;
 		
 		$result = mysql_query($sql, $this->connection);
 		
 		if(!$result || mysql_num_rows($result) <= 0){
-			$this->HandleError("Did Not Find Any Results For " . $formvars['searchGrad']);
+			$this->HandleError("Did Not Find Any Results For " . $searchGrad);
 			return false;
 		}
 		
@@ -106,10 +95,6 @@ class ConfigSite{
         }
         return true;
     }
-	
-	function GetSpamTrapInputName(){
-		return 'sp'.md5('KHGdnbvsgst' . $this->rand_key);
-	}
 	
 	function HandleError($err){
         $this->error_message .= $err."\r\n";
@@ -137,7 +122,7 @@ class ConfigSite{
     }
 	
 	function addUser(){
-		
+		//should add user based on the ID
 	}
 	
 	function alreadyAdded($last, $first){

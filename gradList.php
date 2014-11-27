@@ -1,11 +1,7 @@
 <?PHP
-	require_once("./include/db.php");
 	require_once("./include/pager.php");
 	
-	if($_GET['searchGrad'] !== NULL){
-		$info = $configSite->searchGrad($_GET['searchGrad']);
-		echo $info;
-	}
+	echo $_GET['searchGrad'];
 	
 	//PAGER
 	//instantiation of class
@@ -22,12 +18,20 @@
 	mysql_select_db("cs5339team9fa14");
 	
 	/* Find the number of rows returned from a query; Note: Do NOT use a LIMIT clause in this query */
-	$count = mysql_num_rows(mysql_query("SELECT * FROM master")); 
+	if(isset($_GET['searchGrad'])){
+		$count = mysql_num_rows(mysql_query("SELECT * FROM master WHERE * LIKE " . $_GET['searchGrad']));
+	} else { 
+		$count = mysql_num_rows(mysql_query("SELECT * FROM master"));
+	}
 	
 	/* Find the number of pages based on $count and $limit */
 	$pages = $p->findPages($count, $limit);
 	
-	$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT ". $start . ", " . $limit;
+	if(){
+		$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT ". $start . ", " . $limit;
+	} else {
+		$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT ". $start . ", " . $limit;
+	}
 	
 	$result = mysql_query($dbQuery) or die("Couldn't get file list");
 	
