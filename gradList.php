@@ -2,8 +2,9 @@
 	require_once("./include/db.php");
 	require_once("./include/pager.php");
 	
-	if(isset($_GET['searchGrad'])){
+	if($_GET['searchGrad'] !== NULL){
 		$info = $configSite->searchGrad($_GET['searchGrad']);
+		echo $info;
 	}
 	
 	//PAGER
@@ -36,56 +37,70 @@
 	$pagelist = $p->pageList($_GET['page'], $pages);
 ?>
 
-<table>
-	<thead>
-		<td>Academic Year</td>
-		<td>Term</td>
-		<td>Last</td>
-		<td>First</td>
-		<td>Major</td>
-		<td>Level</td>
-		<td>Degree</td>
-	</thead>
-	<?PHP 
-		/* Or you can use a simple "Previous | Next" listing if you don't want the numeric page listing */
-		$next_prev = $p->nextPrev($_GET['page'], $pages); 
-		echo "<div id='division'>" . $next_prev .  " </div>";
-		/* From here you can do whatever you want with the data from the $result link. */
-		
-		while($row = mysql_fetch_assoc($result)){
-			$num_rows++;?>
-	<tr>
-		<td>
-			<?PHP echo $row['academicyear']?>
-		</td>
-		<td>
-			<?PHP echo $row['academicyear']?>
-		</td>
-		<td>
-			<?PHP echo $row['term'] ?>
-		</td>
-		<td>
-			<?PHP echo $row['last'] ?>
-		</td>
-		<td>
-			<?PHP echo $row['first'] ?>
-		</td>
-		<td>
-			<?PHP echo $row['major'] ?>
-		</td>
-		<td>
-			<?PHP echo $row['level'] ?>
-		</td>
-		<td>
-			<?PHP echo $row['degree'] ?>
-		</td>
-		<td>
-		<?PHP //search if the user has already been added to the system.
-			  //if so, then do not show the add button
-			if($configSite->alreadyAdded($row['last'], $row['first']) == NULL){?>
-			<input type="submit" name="addUser" onclick="<?PHP $configSite->addUser();?>" value="Add">
-		<?PHP }?>
-		</td>
-	</tr>
-		<?PHP } ?>
-</table>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>Alumni Website</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/main.js" ></script>
+	</head>
+	<body>
+		<div id="navigation_container">
+			<?PHP include './menu.php' ?>
+		</div>
+			
+		<table>
+			<thead>
+				<td>Academic Year</td>
+				<td>Term</td>
+				<td>Last</td>
+				<td>First</td>
+				<td>Major</td>
+				<td>Level</td>
+				<td>Degree</td>
+			</thead>
+			<?PHP 
+				/* Or you can use a simple "Previous | Next" listing if you don't want the numeric page listing */
+				$next_prev = $p->nextPrev($_GET['page'], $pages); 
+				echo "<div id='division'>" . $next_prev .  " </div>";
+				/* From here you can do whatever you want with the data from the $result link. */
+				
+				while($row = mysql_fetch_assoc($result)){
+					$num_rows++;?>
+			<tr>
+				<td>
+					<?PHP echo $row['academicyear']?>
+				</td>
+				<td>
+					<?PHP echo $row['academicyear']?>
+				</td>
+				<td>
+					<?PHP echo $row['term'] ?>
+				</td>
+				<td>
+					<?PHP echo $row['last'] ?>
+				</td>
+				<td>
+					<?PHP echo $row['first'] ?>
+				</td>
+				<td>
+					<?PHP echo $row['major'] ?>
+				</td>
+				<td>
+					<?PHP echo $row['level'] ?>
+				</td>
+				<td>
+					<?PHP echo $row['degree'] ?>
+				</td>
+				<td>
+				<?PHP //search if the user has already been added to the system.
+					  //if so, then do not show the add button
+					if($configSite->alreadyAdded($row['last'], $row['first']) == NULL){?>
+					<input type="submit" name="addUser" onclick="<?PHP $configSite->addUser();?>" value="Add">
+				<?PHP }?>
+				</td>
+			</tr>
+				<?PHP } ?>
+		</table>
+	</body>
+</html>
