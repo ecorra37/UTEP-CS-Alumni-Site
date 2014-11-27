@@ -55,7 +55,7 @@ $login_user= $_SESSION['login_user'];
 
 			if($count==0)
 			{
-			echo "You have no friend requests at this time";
+				echo "You have no friend requests at this time";
 			} else {
 				while ($row= mysqli_fetch_assoc($getquery))
 				{
