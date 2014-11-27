@@ -42,6 +42,7 @@
 		<meta charset="UTF-8">
 		<title>Alumni Website</title>
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/table.css">
 		<script src="js/main.js" ></script>
 	</head>
 	<body>
@@ -68,9 +69,6 @@
 				while($row = mysql_fetch_assoc($result)){
 					$num_rows++;?>
 			<tr>
-				<td>
-					<?PHP echo $row['academicyear']?>
-				</td>
 				<td>
 					<?PHP echo $row['academicyear']?>
 				</td>

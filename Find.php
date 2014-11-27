@@ -25,5 +25,8 @@
 				<?PHP include './search.php'; ?>
 			</div>
 		</div>
+		<div>
+			<?PHP include './footer.php'; ?>
+		</div>
 	</body>
 </html>

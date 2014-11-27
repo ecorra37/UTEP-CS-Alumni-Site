@@ -44,5 +44,8 @@
 			<?php include './login.php';?>
 		</div>
 						<?php } ?>
+		<div>
+			<?PHP include './footer.php'; ?>
+		</div>
 	</body>
 </html>

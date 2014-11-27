@@ -102,5 +102,9 @@ $login_user= $_SESSION['login_user'];
 			}
 		}
 		?>
+		
+		<div>
+			<?PHP include './footer.php'; ?>
+		</div>
 	</body>
 </html>
