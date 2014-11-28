@@ -42,29 +42,25 @@ class ConfigSite{
     /*----------(Start) Main Operations----------*/
 	/*----------Search Graduates----------*/
 	function searchGrad($searchGrad){
-		echo $searchGrad;
+		echo $searchGrad . " inside the method &nbsp;";
+		
+		if(!$this->DBLogin()){
+			$this->HandleError("Database login failed!");
+			return false;
+		}
 		
 		if(!isset($searchGrad)){
 			echo "Please Fill Out The...";
 			return false;
 		}
 		
-		if(!$this->searchGradHelper($searchGrad)){
-			return false;
-		} else {
-			$result = $this->searchGradHelper($searchGrad);
-		}
-
-		return $result;
-	}
-	
-	function searchGradHelper($searchGrad){
-		if(!$this->DBLogin()){
-			$this->HandleError("Database login failed!");
-			return false;
-		}
+		$searchGrad = $this->Sanitize($searchGrad);
 		
-		$sql = "SELECT * FROM ". $this->tablename5 . "WHERE * LIKE " . $searchGrad;
+		
+		echo "before query";
+		$sql = "SELECT * FROM master WHERE * LIKE '%" . $searchGrad . "%'";
+		echo "after query";
+		
 		
 		$result = mysql_query($sql, $this->connection);
 		
@@ -72,7 +68,7 @@ class ConfigSite{
 			$this->HandleError("Did Not Find Any Results For " . $searchGrad);
 			return false;
 		}
-		
+
 		return $result;
 	}
 	

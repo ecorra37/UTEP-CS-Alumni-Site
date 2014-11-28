@@ -1,7 +1,6 @@
 <?PHP
+	require_once("./include/db.php");
 	require_once("./include/pager.php");
-	
-	echo $_GET['searchGrad'];
 	
 	//PAGER
 	//instantiation of class
@@ -9,7 +8,7 @@
 
 	/* Show many results per page? */
 	$limit = 20;
-
+	$count = 0;
 	/* Find the start depending on $_GET['page'] (declared if it's null) */
 	$start = $p->findStart($limit);
 	
@@ -17,22 +16,19 @@
 	
 	mysql_select_db("cs5339team9fa14");
 	
+	$var = isset($_GET['searchGrad']) && $_GET['searchGrad'] != "" ? "'.*" . $_GET["searchGrad"] .".*'" : null;
+	$qry = "SELECT * FROM master ";
+	$qry .= $var != null ? 
+			" WHERE academicyear REGEXP $var or term REGEXP $var or last REGEXP $var or first REGEXP $var or major REGEXP $var or level REGEXP $var or degree REGEXP $var " 
+			: "";
+	
 	/* Find the number of rows returned from a query; Note: Do NOT use a LIMIT clause in this query */
-	if(isset($_GET['searchGrad'])){
-		$count = mysql_num_rows(mysql_query("SELECT * FROM master WHERE * LIKE " . $_GET['searchGrad']));
-	} else { 
-		$count = mysql_num_rows(mysql_query("SELECT * FROM master"));
-	}
+	$count = mysql_num_rows(mysql_query($qry));
 	
 	/* Find the number of pages based on $count and $limit */
 	$pages = $p->findPages($count, $limit);
 	
-	if(){
-		$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT ". $start . ", " . $limit;
-	} else {
-		$dbQuery = "SELECT * FROM master ORDER BY academicyear ASC LIMIT ". $start . ", " . $limit;
-	}
-	
+	$dbQuery .= $qry . "  ORDER BY master_id ASC LIMIT " . $start . ", " . $limit;
 	$result = mysql_query($dbQuery) or die("Couldn't get file list");
 	
 	$num_rows = 0;
