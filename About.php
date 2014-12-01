@@ -1,7 +1,5 @@
 <?php
 	include('include/db.php');
-	session_start();
-	$login_user = $_SESSION['login_user'];
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +15,9 @@
 	<body>
 		<div id="navigation_container">
 			<?PHP include './menu.php' ?>
+		</div>
+		<div>
+			<?PHP include './footer.php'; ?>
 		</div>
 	</body>
 </html>

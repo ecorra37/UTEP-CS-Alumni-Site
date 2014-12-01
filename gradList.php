@@ -2,6 +2,8 @@
 	require_once("./include/db.php");
 	require_once("./include/pager.php");
 	
+	//$_GET['seeAll'];
+	
 	//PAGER
 	//instantiation of class
 	$p = new Pager;
@@ -9,6 +11,9 @@
 	/* Show many results per page? */
 	$limit = 20;
 	$count = 0;
+	
+	$dbQuery = "";
+	
 	/* Find the start depending on $_GET['page'] (declared if it's null) */
 	$start = $p->findStart($limit);
 	
@@ -59,6 +64,7 @@
 				<td>Major</td>
 				<td>Level</td>
 				<td>Degree</td>
+				<td>add</td>
 			</thead>
 			<?PHP 
 				/* Or you can use a simple "Previous | Next" listing if you don't want the numeric page listing */
@@ -93,12 +99,15 @@
 				<td>
 				<?PHP //search if the user has already been added to the system.
 					  //if so, then do not show the add button
-					if($configSite->alreadyAdded($row['last'], $row['first']) == NULL){?>
-					<input type="submit" name="addUser" onclick="<?PHP $configSite->addUser();?>" value="Add">
+					if($configSite->alreadyAdded($row['last'], $row['first'])){?>
+						<input type="submit" name="addUser" onclick="<?PHP=$configSite->addUser(); ?>" value="Add"/>
 				<?PHP }?>
 				</td>
 			</tr>
 				<?PHP } ?>
 		</table>
+		<div>
+			<?PHP include './footer.php'; ?>
+		</div>
 	</body>
 </html>

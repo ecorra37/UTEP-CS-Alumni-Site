@@ -6,7 +6,7 @@
 		header ("Location: access_denied.php");
 	}
 
-	$login_user= $_SESSION['login_user'];
+	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $login_user = "";
 ?>
 
 <!DOCTYPE html>

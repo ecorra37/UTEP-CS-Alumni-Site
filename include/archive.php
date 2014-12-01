@@ -582,18 +582,6 @@ DO NOT import to the School's server*/
         $this->SendAdminIntimationOnRegComplete($user_rec);
         
         return true;
-    }    
-    
-    function CheckLogin(){
-         if(!isset($_SESSION)){ session_start(); }
-
-         $sessionvar = $this->GetLoginSessionVar();
-         
-         if(empty($_SESSION[$sessionvar]))
-         {
-            return false;
-         }
-         return true;
     }
     
 	function UsrName(){
@@ -897,13 +885,6 @@ DO NOT import to the School's server*/
 		}
 		return htmlentities($_POST[$value_name]);
 	}
-
-	function RedirectToURL($url){
-		header("Location: $url");
-		exit;
-	}
-
-	   
 
 	function GetFromAddress(){
 		if(!empty($this->from_address)){

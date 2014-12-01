@@ -1,14 +1,14 @@
- <?php
- include('include/db.php');
-session_start();
+<?php
+	include('include/db.php');
+	session_start();
 
-if (!(isset($_SESSION['login_status']))) {
+	if (!(isset($_SESSION['login_status']))) {
+		header ("Location: access_denied.php");
+	}
 
-header ("Location: access_denied.php");
-}
-
-$login_user= $_SESSION['login_user'];
+	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $configSite->RedirectToURL('./index.php');
 ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->

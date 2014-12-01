@@ -1,7 +1,7 @@
 <?php
-	include('include/db.php');
+	/*include('include/db.php');
 	session_start();
-	$login_user = $_SESSION['login_user'];
+	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $configSite->RedirectToURL('./index.php');*/
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +18,6 @@
 			<?PHP include './menu.php' ?>
 		</div>
 		<div class="main_content">
-			<div>
-				<?PHP include './login.php'; ?>
-			</div>
 			<div>
 				<?PHP include './search.php'; ?>
 			</div>
