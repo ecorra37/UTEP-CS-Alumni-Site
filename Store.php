@@ -1,7 +1,11 @@
 <?php
 	include('include/db.php');
-	session_start();
-	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $configSite->RedirectToURL('./index.php');
+	//should not be checking for session, anyone can buy items.
+	/*if(isset($_POST['submitted'])){
+		if($configSite->login()){
+			$configSite->redirectToURL("./index.php");
+		}
+	}*/
 ?>
 
 <!DOCTYPE html>
@@ -15,10 +19,13 @@
 	
 	<body>
 		<div id="navigation_container">
-			<?PHP include './menu.php' ?>
+			<div>
+				<?PHP include './menu.php' ?>
+			</div>
+			<div>
+				<?PHP include './footer.php'; ?>
+			</div>
 		</div>
-		<div>
-			<?PHP include './footer.php'; ?>
-		</div>
+		
 	</body>
 </html>
