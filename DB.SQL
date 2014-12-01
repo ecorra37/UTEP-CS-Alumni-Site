@@ -23,7 +23,7 @@ CREATE TABLE users (
 	address VARCHAR(50) NULL,
 	bio_data TEXT NULL,
 	employed ENUM('y','n','u')	NOT NULL DEFAULT 'u',
-	profile_pic BLOB NULL,
+	profile_pic VARCHAR(30) NULL,
 	last_login DATE NULL,
 	profile_added DATE NULL,
 	active_status ENUM('0','1') NOT NULL DEFAULT '0',
@@ -76,5 +76,7 @@ CREATE TABLE items (
 	product_name VARCHAR(30) NOT NULL,
 	description VARCHAR(255) NOT NULL,
 	quantity INT(15) NOT NULL,
+	price DECIMAL(10,2) NOT NULL,
+	item_pic VARCHAR(30) NULL,
 	PRIMARY KEY (item_id)
 ) ENGINE=InnoDB;
