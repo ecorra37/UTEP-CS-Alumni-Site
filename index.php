@@ -25,10 +25,12 @@
 	
 	<body>
 		<div id="navigation_container">
-			<?PHP include './menu.php'?>
-		</div>
-		<div>
-			<?PHP include './footer.php'; ?>
+			<div>
+				<?PHP include './menu.php'?>
+			</div>
+			<div>
+				<?PHP include './footer.php'; ?>
+			</div>
 		</div>
 	</body>
 </html>

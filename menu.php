@@ -1,3 +1,7 @@
+<?PHP
+	include('include/db.php');
+?>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script language="javascript"> 
 function toggle() {
@@ -6,10 +10,9 @@ function toggle() {
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
 		text.innerHTML = "Login";
-  	}
-	else {
+  	} else {
 		ele.style.display = "block";
-		text.innerHTML = "Hide";
+		text.innerHTML = "Account";
 	}
 } 
 </script>
@@ -21,12 +24,12 @@ function toggle() {
 		<li><a href="./Find.php">Find Graduate</a></li>
 		<li><a href="./About.php">About Us</a></li>
 		
-		<li><a id="displayText" href="javascript:toggle();">Login</a></li>
-		<div id="toggleText" style="display: none"><?php include './login.php';?></div>
-		
-			<?php if ((isset($_SESSION['login_status']))) {?>
+			<?php if($configSite->CheckLogin()){?>
 		<li><a href="./loginprofile.php">Profile</a></li>
 		<li><a href="./signout.php">Sign Out</a></li>
 	</ul>
 </div>
-			<?php } ?>
+			<?php } elseif(!$configSite->CheckLogin()){?>
+				<li><a id="displayText" href="javascript:toggle();">Login</a></li>
+				<div id="toggleText" style="display: none"><?php include './login.php';?></div>
+			<?php }

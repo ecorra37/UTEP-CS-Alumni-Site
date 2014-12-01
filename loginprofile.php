@@ -33,8 +33,8 @@
 
 		<?php
 			// to show login user profile
-			$username=$login_user;
-			$_SESSION['profile_user']=$username; 
+			$username = $login_user;
+			$_SESSION['profile_user']=$username;
 
 			if(ctype_alnum($username))
 			{

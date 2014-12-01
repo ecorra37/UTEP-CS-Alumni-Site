@@ -151,7 +151,7 @@ class ConfigSite{
         
         $sessionvar = $this->getLoginSessionVar();
         
-        $_SESSION[$sessionvar]=NULL;
+        $_SESSION[$sessionvar] = NULL;
         
         unset($_SESSION[$sessionvar]);
     }
@@ -164,7 +164,7 @@ class ConfigSite{
 		
 		$username = $this->SanitizeForSQL($username);
 		$pwdmd5 = md5($password);
-		$qry = "SELECT first, last, email, username FROM $this->tablename5 WHERE username = '$username' AND password = '$pwdmd5'";
+		$qry = "SELECT first, last, email, username FROM $this->tablename8 WHERE username = '$username' AND password = '$pwdmd5'";
 
 		$result = mysql_query($qry, $this->connection);
 
