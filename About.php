@@ -1,7 +1,3 @@
-<?php
-	include('include/db.php');
-?>
-
 <!DOCTYPE html>
 <html>
 	<head lang="en">

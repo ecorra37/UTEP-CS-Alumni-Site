@@ -1,13 +1,3 @@
-<?php
-	include('include/db.php');
-	//should not be checking for session, anyone can buy items.
-	/*if(isset($_POST['submitted'])){
-		if($configSite->login()){
-			$configSite->redirectToURL("./index.php");
-		}
-	}*/
-?>
-
 <!DOCTYPE html>
 <html>
 	<head lang="en">
