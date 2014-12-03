@@ -23,7 +23,6 @@
 	</head>
 	
 	<body>
-		<?PHP echo $login_user; ?>
 		<div id="navigation_container">
 			<?PHP include './menu.php' ?>
 		</div>
@@ -147,32 +146,31 @@
 		</div>
 		<div class="textHeader"><?php echo $username;?>'s Friends</div>
 		<div class="profileleftSideContent">
+			<?php
+				$query= "select * from friend_requests WHERE user_id_to='$login_user' and request_status='1' or user_id_from='$login_user' ";
 
-		<?php
-			$query= "select * from friend_requests WHERE user_id_to='$login_user' and request_status='1' or user_id_from='$login_user' ";
+				$getquery=mysqli_query($con,$query);
+				$count = mysqli_num_rows($getquery);
 
-			$getquery=mysqli_query($con,$query);
-			$count = mysqli_num_rows($getquery);
+				if($count==0){
+					echo "You have no friends";
+				} else {
+					while ($row= mysqli_fetch_assoc($getquery)){
+						$loginuser_from = $row['user_id_from'];
+						$loginuser_to = $row['user_id_to'];
 
-			if($count==0){
-				echo "You have no friends";
-			} else {
-				while ($row= mysqli_fetch_assoc($getquery)){
-					$loginuser_from = $row['user_id_from'];
-					$loginuser_to = $row['user_id_to'];
-
-					if($loginuser_from!=$login_user){
-						$fn = $loginuser_from;
-						echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
-					}
-					
-					if($loginuser_to!=$login_user){
-						$fn = $loginuser_to;
-						echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
+						if($loginuser_from!=$login_user){
+							$fn = $loginuser_from;
+							echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
+						}
+						
+						if($loginuser_to!=$login_user){
+							$fn = $loginuser_to;
+							echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
+						}
 					}
 				}
-			}
-		?>
+			?>
 		</div>
 	</body>
 </html>

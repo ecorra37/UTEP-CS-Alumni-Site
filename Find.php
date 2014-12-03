@@ -23,6 +23,5 @@
 				<?PHP include './footer.php'; ?>
 			</div>
 		</div>
-		
 	</body>
 </html>
