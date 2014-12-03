@@ -1,4 +1,4 @@
- <?php
+<?php
  include('include/db.php');
 session_start();
 
@@ -42,68 +42,19 @@ $login_user= $_SESSION['login_user'];
     </div>
 <?php }?>
 </div>
- <div id="welcome">
-            <p>
-
-            Welcome <?php echo "<b>" .$login_user. "</b>"; ?>
-
-</p></div>
-
- <?php  
-              if (isset($_GET['act_update']))
-              {
-              $Message = $_GET['act_update'];
-              if($Message==true)
-              {
-                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> Account Updated Succesfully </P></br>";
-              }
-              else
-              {
-                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> Problem with updation. Please try again </P></br>";  
-              }
-              }
-              ?>
-<?php  
-              if (isset($_GET['msg_status']))
-              {
-              $Message = $_GET['msg_status'];
-              if($Message==true)
-              {
-                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'>Your message sent to <b>" . $_SESSION['profile_user']. "</b> succesfully </P></br>";
-              }
-              else
-              {
-                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> Problem with message sending. Please try again </P></br>";  
-              }
-              }
-              ?>
-               <?php  
-              if (isset($_GET['frnd_status']))
-              {
-              $Message = $_GET['frnd_status'];
-              if($Message==true)
-              {
-                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> your friend now </P></br>";
-              }
-              else if($Message==false)
-              {
-                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> not your friend</P></br>";  
-              }
-              }
-              ?>
-<div id="view_list">
-<a href="friend_requests.php" >View Friend Requests</a>
-&nbsp;&nbsp;
-<a href="editprofile.php" >Edit Profile</a>
-&nbsp;&nbsp;
-<a href="view_messages.php" >View Messages</a>
-</div>
-
 <?php
+if(!isset($_GET['u']))
+{
 	// to show login user profile
 	$username=$login_user;
     $_SESSION['profile_user']=$username; 
 
+}
+else
+{   // to show friend profile
+	$username=sanitizeString($_GET['u']);
+	$_SESSION['profile_user']=$username; 
+}
 if(ctype_alnum($username))
 {
 
@@ -124,7 +75,7 @@ $firstname=$get['first'];
 }
 else
 {
-echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.php\">";
+echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.html\">";
 exit();
 }
 }
@@ -172,11 +123,43 @@ echo " <div class='posted_by'> $added_by  $date_added </div>&nbsp;&nbsp;$body<br
 ?>
 
 
-
 </div>
 <img src="./img/ice1.jpg" height="200" width="200" alt="<?php echo $username;?>'s profile" title="<?php echo $username;?>'s profile"/>
 <br/>
+<?php if($login_user==$_SESSION['profile_user'])
+{
+	//do nothing
+}
+else
+{ // show add frind and send message buttons
+//echo "$msg";	
 
+	
+$getquery= "select * from friend_requests WHERE user_id_from='$username' and user_id_to='$login_user'";
+
+$newuser=mysqli_query($con,$getquery);
+
+$count=  mysqli_num_rows($newuser);
+      
+if($count==0)
+{
+	echo "<form action ='send_request.php' method='POST'>";
+	echo "<input type='hidden' name='add_request' value=''>";
+	echo "<input type='submit' name='addFriend' value='Add Friend'/>";
+	echo "</form>";
+	echo "<form action='send_message.php'>";
+	
+	echo "<input type='submit' name='sendmsg' value='Send Message'/>";
+echo "</form>";
+}
+else
+{
+echo "<form action ='send_message.php' method='POST'>";
+echo "<input type='submit' name='sendmsg' value='Send Message'/>";
+echo "</form>";
+}
+}
+?>
 
 <div class="textHeader"><?php echo $username;?>'s Profile</div>
 <div class="profileleftSideContent">
@@ -193,13 +176,16 @@ $bio = $row['bio_data'];
 
 echo " $bio<br/>";
 }
-?></div>
+?>.</div>
+
 <div class="textHeader"><?php echo $username;?>'s Friends</div>
 <div class="profileleftSideContent">
 
 <?php
 
-   $query= "select * from friend_requests WHERE user_id_to='$login_user' and request_status='1' or user_id_from='$login_user' ";
+
+   $query= "select * from friend_requests WHERE user_id_to='$username' and request_status='1' or user_id_from='$username' ";
+
 
 $getquery=mysqli_query($con,$query);
 $count = mysqli_num_rows($getquery);
@@ -220,12 +206,12 @@ while ($row= mysqli_fetch_assoc($getquery))
 	$loginuser_to= $row['user_id_to'];
 	
 	
-	if($loginuser_from!=$login_user)
+	if($loginuser_from!=$username)
 	{
 		$fn=$loginuser_from;
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
 	}
-		if($loginuser_to!=$login_user)
+		if($loginuser_to!=$username)
 	{
 		$fn=$loginuser_to;
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
@@ -239,6 +225,7 @@ while ($row= mysqli_fetch_assoc($getquery))
 
 
 </div>
+
 
 
 </body>
