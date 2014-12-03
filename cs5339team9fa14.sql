@@ -1357,3 +1357,18 @@ INSERT INTO `user_posts` (`post_id`, `post_body`, `added_by`, `added_to`, `date_
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE IF NOT EXISTS `privacy` (
+  `privacy_id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `user_id` int(11) NOT NULL 
+  `user_name` varchar(30) NOT NULL,
+  `property_name` varchar(30) NOT NULL, 
+  `property_value` varchar(30) NOT NULL, 
+  `hide_status` enum('on','off') NOT NULL DEFAULT 'off',
+    
+  `date_updated` date  NULL,
+PRIMARY KEY (`privacy_id`)	
+INDEX(`user_id`)
+	) 
