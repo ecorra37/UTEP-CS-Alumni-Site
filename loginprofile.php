@@ -1,13 +1,9 @@
- <?php
- include('include/db.php');
+<?php
+include('include/dbEC.php');
+include('include/db.php');
 session_start();
 
-if (!(isset($_SESSION['login_status']))) {
-
-header ("Location: access_denied.php");
-}
-
-$login_user= $_SESSION['login_user'];
+isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] : header ("Location: access_denied.php");;
 ?>
 <!DOCTYPE html>
 <html>
