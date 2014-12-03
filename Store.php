@@ -1,5 +1,5 @@
 <?php
-	include('include/db.php');
+	include('include/dbEC.php');
 	//should not be checking for session, anyone can buy items.
 	/*if(isset($_POST['submitted'])){
 		if($configSite->login()){

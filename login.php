@@ -1,8 +1,8 @@
 <?PHP
-	include('include/db.php');
+	include('include/dbEC.php');
 	if(isset($_POST['submitted'])){
 		if($configSite->login()){
-			$configSite->redirectToURL("./index.php");
+			$configSite->redirectToURL("./loginprofile.php");
 		}
 	}
 ?>

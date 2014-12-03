@@ -1,7 +1,7 @@
 <meta http-equiv="refresh" content="2; index.php">
 
 <?php
-	require_once("./include/db.php");
+	require_once("./include/dbEC.php");
 	$configSite->LogOut();
 ?>
 <html>

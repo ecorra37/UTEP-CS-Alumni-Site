@@ -1,5 +1,5 @@
 <?PHP
-	require_once("./include/db.php");
+	require_once("./include/dbEC.php");
 	require_once("./include/pager.php");
 	
 	//$_GET['seeAll'];

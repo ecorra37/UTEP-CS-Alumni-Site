@@ -178,6 +178,8 @@ class ConfigSite{
 		$_SESSION['name_of_user']  = $row['first'] . " " . $row['last'];
 		$_SESSION['user_name']     = $row['username'];
 		$_SESSION['email_of_user'] = $row['email'];
+		$_SESSION['login_status'] = true;
+		
 
 		return true;
 	}

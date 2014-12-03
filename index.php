@@ -1,5 +1,5 @@
 <?php
-	include('include/db.php');
+	include('include/dbEC.php');
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-	/*include('include/db.php');
+	/*include('include/dbEC.php');
 	session_start();
 	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $configSite->RedirectToURL('./index.php');*/
 ?>
