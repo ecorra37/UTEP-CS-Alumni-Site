@@ -1,9 +1,9 @@
 <?php
 	$currency = '$';
-	$hostname = "localhost";
+	$hostname = "earth.cs.utep.edu";
 	$database = "cs5339team9fa14";
-	$username = "team9";
-	$password = "1234";
+	$username = "cs5339team9fa14";
+	$password = "cs5339!cs5339team9fa14";
 	$con = mysqli_connect($hostname, $username, $password, $database);
 	// Check connection
 	if (mysqli_connect_errno()) {

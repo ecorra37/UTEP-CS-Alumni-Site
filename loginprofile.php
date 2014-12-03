@@ -9,6 +9,10 @@
 		$configSite->redirectToURL("./access_denied.php");
 	}
 	
+	if(){
+		
+	}
+	
 	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
 ?>
 <!DOCTYPE html>
@@ -99,11 +103,18 @@
 				return $var;
 			}
 		?>
-
+		
+		<!--POST message-->
 		<div class="postForm">
-			<textarea id="post" name="post" rows="3" cols="58"></textarea>
-			<input type="submit" name="send" onclick="send_post()" value="Post" style="background-color: #DCESEE; float:right; border: 1px solid:#6666">
-			<p id="status">Post Here</p>
+			<form name="postForm" action="<?PHP $configSite->GetSelfScript(); ?>" method="POST">
+				<input type="hidden" name="submitted" id="submitted" value="1"/>
+				
+				<div><span class="error"><?php echo $configSite->GetErrorMessage(); ?></span></div>
+				
+				<textarea id="msg" name="msg" value="<?php echo $configSite->SafeDisplay('msg') ?>" rows="3" cols="58"></textarea>
+				<input type="submit" name="msg" value="msg" style="background-color: #DCESEE; float:right; border: 1px solid:#6666">
+				<p id="status">Post Here</p>
+			</form>
 		</div>
 
 		<div class="profilePosts"> 
