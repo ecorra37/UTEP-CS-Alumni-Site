@@ -6,9 +6,9 @@
 ?>
 <html>
 	<head>
-	
+		<link rel="stylesheet" href="css/main.css">
 	</head>
-	<body>
+	<body style="text-align: center;">
 		<h2>You have logged out!</h2>
 	</body>
 </html>

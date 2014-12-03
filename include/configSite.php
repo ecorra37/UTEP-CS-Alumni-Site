@@ -8,13 +8,12 @@ class ConfigSite{
 	var $pwd;        /*From DB*/
 	var $database;   /*EventAdvisors*/
 	var $tablename1; /*admin*/
-	var $tablename2; /*friends*/
-	var $tablename3; /*friend_request*/
-	var $tablename4; /*items*/
-	var $tablename5; /*master*/
-	var $tablename6; /*messages*/
-	var $tablename7; /*students_master*/
-	var $tablename8; /*users*/
+	var $tablename2; /*friend_request*/
+	var $tablename3; /*items*/
+	var $tablename4; /*master*/
+	var $tablename5; /*messages*/
+	var $tablename6; /*user_posts*/
+	var $tablename7; /*users*/
 	var $connection; /**/
 	var $rand_key = '5qts9W3JvI';   /**/
 
@@ -23,7 +22,7 @@ class ConfigSite{
     /*----(Start) Initialization----*/
     function ConfigSite(){ }
     
-    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3, $tablename4, $tablename5, $tablename6, $tablename7, $tablename8){
+    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3, $tablename4, $tablename5, $tablename6, $tablename7){
         $this->db_host    = $host;
         $this->username   = $uname;
         $this->pwd        = $pwd;
@@ -34,8 +33,7 @@ class ConfigSite{
         $this->tablename4 = $tablename4;   
         $this->tablename5 = $tablename5;   
         $this->tablename6 = $tablename6;   
-        $this->tablename7 = $tablename7;   
-        $this->tablename8 = $tablename8;   
+        $this->tablename7 = $tablename7;
     }
     /*----(End) Initialization----*/
 	
@@ -97,6 +95,10 @@ class ConfigSite{
         return $str;
     }
 	
+	function userName(){
+        return isset($_SESSION['user_name']) ? $_SESSION['user_name'] : ' ';
+    }
+	
 	function addUser(){
 		//should add user based on the ID
 		
@@ -119,7 +121,6 @@ class ConfigSite{
 		exit;
 	}
 	/*----------(End) Main Operations----------*/
-	
 	
 	/*----------(Start) Login----------*/
 	function login(){
@@ -164,7 +165,7 @@ class ConfigSite{
 		
 		$username = $this->SanitizeForSQL($username);
 		$pwdmd5 = md5($password);
-		$qry = "SELECT first, last, email, username FROM $this->tablename8 WHERE username = '$username' AND password = '$pwdmd5'";
+		$qry = "SELECT first, last, email, username FROM $this->tablename7 WHERE username = '$username' AND password = '$pwdmd5'";
 
 		$result = mysql_query($qry, $this->connection);
 
@@ -205,16 +206,15 @@ class ConfigSite{
     }
 	
 	function CheckLogin(){
-         if(!isset($_SESSION)){ session_start(); }
+		if(!isset($_SESSION)){ session_start(); }
 
-         $sessionvar = $this->GetLoginSessionVar();
-         
-         if(empty($_SESSION[$sessionvar]))
-         {
-            return false;
-         }
-         return true;
-    }
+		$sessionvar = $this->GetLoginSessionVar();
+
+		if(empty($_SESSION[$sessionvar])){
+			return false;
+		}
+		return true;
+	}
 	
 	function getLoginSessionVar(){
         $retvar = md5($this->rand_key);
@@ -249,6 +249,55 @@ class ConfigSite{
 			return'';
 		}
 		return htmlentities($_POST[$value_name]);
+	}
+	
+	/*Hima's method to check login*/
+	function validateLogin(){
+		session_start();
+		include('include/db.php');
+		$uname = (isset($_POST['username']) ? $_POST['username'] : null);
+		$pwd = (isset($_POST['password']) ? $_POST['password'] : null);
+		$username = sanitizeString($uname);
+		$password = sanitizeString($pwd);
+		$_SESSION['login_user'] = $username;
+
+		// case for login                 
+		if(isset($_POST['login_submit']))
+		{
+			if(ctype_alnum($username))
+			{
+				//check user exist
+
+				$query = "SELECT username, first FROM users WHERE username='$username'and password='$password'";
+
+				$result = mysqli_query($con, $query);
+				$count = mysqli_num_rows($result);
+
+				if($count==1)
+				{
+					$get = mysqli_fetch_assoc($result);
+					//$username=$get['username'];
+					$firstname=$get['first_name'];
+					//echo "user exist";
+					$_SESSION['login_user_fname']=$firstname;
+					$_SESSION['login_status']=true;
+					header("Location: loginprofile.php");
+				} else {
+					//user not exist invalud login credentials
+					//echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.html\">";
+					header("Location: index.php");
+					exit();
+				}
+			}
+		}
+	}
+	
+	// function to sanitize the user input
+	function sanitizeString($var){
+		$var=  stripcslashes($var);
+		$var=  strip_tags($var);
+		$var=  htmlentities($var);
+		return $var;
 	}
 }
 ?>

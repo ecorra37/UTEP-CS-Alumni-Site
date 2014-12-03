@@ -1,13 +1,17 @@
- <?php
- include('include/db.php');
-session_start();
+<?php
+include('include/dbEC.php');
+include('include/db.php');
+/*session_start();
 
-if (!(isset($_SESSION['login_status']))) {
+isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] : header ("Location: access_denied.php");*/
 
-header ("Location: access_denied.php");
-}
-
-$login_user= $_SESSION['login_user'];
+	if(isset($_POST['submitted'])){
+		if($configSite->CheckLogin()){
+			$configSite->redirectToURL("./access_denied.php");
+		}
+	}
+	
+	($configSite->userName() == NULL) ? $login_user = $configSite->userName() : header ("Location: access_denied.php");
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->

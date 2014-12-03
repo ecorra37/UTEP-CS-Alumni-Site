@@ -14,9 +14,9 @@
 		{
 			//check user exist
 
-			$query = "SELECT username,first FROM users WHERE username='$username'and password='$password'";
+			$query = "SELECT username, first FROM users WHERE username='$username'and password='$password'";
 
-			$result = mysqli_query($con,$query);
+			$result = mysqli_query($con, $query);
 			$count = mysqli_num_rows($result);
 
 			if($count==1)

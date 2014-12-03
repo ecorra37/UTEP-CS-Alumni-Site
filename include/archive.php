@@ -583,10 +583,6 @@ DO NOT import to the School's server*/
         
         return true;
     }
-    
-	function UsrName(){
-        return isset($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
-    }
 	
     function UserFullName(){
         return isset($_SESSION['name_of_user']) ? $_SESSION['name_of_user'] : '';

@@ -142,7 +142,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (34, '1996-97', 199710, 'Trevathan', 'Ian', 'CS', 'UG', 'BSCS'),
 (35, '1996-97', 199710, 'Saldana', 'Edgar', 'CS', 'UG', 'BSCS'),
 (36, '1996-97', 199710, 'Sifuentes', 'Leticia', 'CS', 'UG', 'BSCS'),
-(37, '1996-97', 199710, 'Lopez Gonzalez', 'Saulo', 'CS', 'UG', 'BSCS'),
+(37, '1996-97', 199710, 'Lopez Gonzalez', 'Saulo', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (38, '1996-97', 199710, 'Sanchez', 'Jose', 'CS', 'UG', 'BSCS'),
 (39, '1996-97', 199710, 'Gabaldon', 'Alfredo', 'CS', 'GR', 'MS'),
 (40, '1996-97', 199710, 'Morales', 'David', 'CS', 'GR', 'MS'),
@@ -179,7 +181,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (71, '1997-98', 199810, 'Yiasemis', 'Haris', 'CS', 'GR', 'MS'),
 (72, '1997-98', 199820, 'Caraveo', 'Arturo', 'CS', 'UG', 'BSCS'),
 (73, '1997-98', 199820, 'Delgado', 'Nelly', 'CS', 'UG', 'BSCS'),
-(74, '1997-98', 199820, 'Sierra', 'Ivette', 'CS', 'UG', 'BSCS'),
+(74, '1997-98', 199820, 'Sierra', 'Ivette', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (75, '1997-98', 199820, 'Jaquez', 'Laura', 'CS', 'UG', 'BSCS'),
 (76, '1997-98', 199820, 'Ortiz', 'Jose', 'CS', 'UG', 'BSCS'),
 (77, '1997-98', 199820, 'Rodriguez', 'Ricardo', 'CS', 'UG', 'BSCS'),
@@ -216,7 +220,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (108, '1998-99', 199920, 'Subbaramu', 'Sanjeev', 'CS', 'GR', 'MS'),
 (109, '1998-99', 199920, 'Hu', 'Zhibao', 'CS', 'GR', 'MS'),
 (110, '1998-99', 199930, 'Villarreal', 'Francisco', 'CS', 'GR', 'MS'),
-(111, '1998-99', 199930, 'Li', 'Shuiqing', 'CS', 'GR', 'MS'),
+(111, '1998-99', 199930, 'Li', 'Shuiqing', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (112, '1999-00', 200010, 'Torres', 'Roberto', 'CS', 'UG', 'BSCS'),
 (113, '1999-00', 200010, 'Reyes', 'Emilio', 'CS', 'UG', 'BSCS'),
 (114, '1999-00', 200010, 'Velazquez', 'Antonio', 'CS', 'UG', 'BSCS'),
@@ -253,7 +259,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (145, '1999-00', 200020, 'Lujan', 'Gonzalo', 'CS', 'UG', 'BSCS'),
 (146, '1999-00', 200020, 'Ricca', 'Noel', 'CS', 'UG', 'BSCS'),
 (147, '1999-00', 200020, 'Natarajan', 'Vijai', 'CS', 'GR', 'MS'),
-(148, '1999-00', 200020, 'Castillo', 'Gilbert', 'CS', 'GR', 'MS'),
+(148, '1999-00', 200020, 'Castillo', 'Gilbert', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (149, '1999-00', 200020, 'Chen', 'Kang', 'CS', 'GR', 'MS'),
 (150, '1999-00', 200020, 'Krishna', 'Murali', 'CS', 'GR', 'MS'),
 (151, '1999-00', 200030, 'Pajaro', 'Jesus', 'CS', 'UG', 'BSCS'),
@@ -290,7 +298,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (182, '2000-01', 200120, 'Ghosh', 'Tanushree', 'CS', 'UG', 'BSCS'),
 (183, '2000-01', 200120, 'Hernandez', 'Carlos', 'CS', 'UG', 'BSCS'),
 (184, '2000-01', 200120, 'Macias I I I', 'Leopoldo', 'CS', 'UG', 'BSCS'),
-(185, '2000-01', 200120, 'Villarreal', 'Marcos', 'CS', 'UG', 'BSCS'),
+(185, '2000-01', 200120, 'Villarreal', 'Marcos', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (186, '2000-01', 200120, 'Castillo', 'Karla', 'CS', 'UG', 'BSCS'),
 (187, '2000-01', 200120, 'Chong', 'Ki-Yaw', 'CS', 'UG', 'BSCS'),
 (188, '2000-01', 200120, 'Hernandez', 'Isaac', 'CS', 'UG', 'BSCS'),
@@ -326,7 +336,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (218, '2001-02', 200210, 'Castanares', 'Anthony', 'CS', 'UG', 'BSCS'),
 (219, '2001-02', 200210, 'Herrera', 'Alejandra', 'CS', 'UG', 'BSCS'),
 (220, '2001-02', 200210, 'Heidt', 'Mary', 'CS', 'GR', 'MS'),
-(221, '2001-02', 200210, 'Saenz', 'Edgar', 'CS', 'GR', 'MS'),
+(221, '2001-02', 200210, 'Saenz', 'Edgar', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (222, '2001-02', 200210, 'Beck', 'Jan', 'CS', 'GR', 'MS'),
 (223, '2001-02', 200210, 'Delgado', 'Nelly', 'CS', 'GR', 'MS'),
 (224, '2001-02', 200220, 'Taylor', 'Priscilla', 'CS', 'UG', 'BSCS'),
@@ -363,7 +375,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (255, '2002-03', 200310, 'Kirby', 'Christopher', 'CS', 'UG', 'BSCS'),
 (256, '2002-03', 200310, 'Esparza', 'Abel', 'CS', 'UG', 'BSCS'),
 (257, '2002-03', 200310, 'Salcedo', 'Flor', 'CS', 'UG', 'BSCS'),
-(258, '2002-03', 200310, 'Finch', 'Roger', 'CS', 'UG', 'BSCS'),
+(258, '2002-03', 200310, 'Finch', 'Roger', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (259, '2002-03', 200310, 'Santillana', 'Obed', 'CS', 'UG', 'BSCS'),
 (260, '2002-03', 200310, 'Ramos', 'Manuel', 'CS', 'UG', 'BSCS'),
 (261, '2002-03', 200310, 'Morgan', 'Trevor', 'CS', 'UG', 'BSCS'),
@@ -400,7 +414,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (292, '2002-03', 200310, 'Cornejo', 'Luis', 'MIT ', 'GR', 'MIT '),
 (293, '2002-03', 200310, 'Alvidrez', 'Laura', 'MIT ', 'GR', 'MIT '),
 (294, '2002-03', 200310, 'Paz', 'Victor', 'MIT ', 'GR', 'MIT '),
-(295, '2002-03', 200320, 'Betance', 'Carlos', 'CS', 'UG', 'BSCS'),
+(295, '2002-03', 200320, 'Betance', 'Carlos', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (296, '2002-03', 200320, 'Quezada', 'Abdiel', 'CS', 'UG', 'BSCS'),
 (297, '2002-03', 200320, 'Frias', 'Juan', 'CS', 'UG', 'BSCS'),
 (298, '2002-03', 200320, 'Nieto', 'Gustavo', 'CS', 'UG', 'BSCS'),
@@ -437,7 +453,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (329, '2002-03', 200330, 'Upadhyaya', 'Kalyan', 'CS', 'GR', 'MS'),
 (330, '2002-03', 200330, 'Patangay', 'Praveen', 'CS', 'GR', 'MS'),
 (331, '2002-03', 200330, 'Nieto', 'Manuel', 'CS', 'GR', 'MS'),
-(332, '2003-04', 200410, 'Campos', 'Francisco', 'CS', 'UG', 'BSCS'),
+(332, '2003-04', 200410, 'Campos', 'Francisco', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (333, '2003-04', 200410, 'Malpica', 'Jose', 'CS', 'UG', 'BSCS'),
 (334, '2003-04', 200410, 'Gamboa', 'Jaime', 'CS', 'UG', 'BSCS'),
 (335, '2003-04', 200410, 'Acosta', 'Jorge', 'CS', 'UG', 'BSCS'),
@@ -474,7 +492,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (366, '2003-04', 200410, 'Segovia', 'Ivan', 'MIT ', 'GR', 'MIT '),
 (367, '2003-04', 200410, 'Salcedo', 'Alvaro', 'MIT ', 'GR', 'MIT '),
 (368, '2003-04', 200420, 'Rico', 'Jamiel', 'CS', 'UG', 'BSCS'),
-(369, '2003-04', 200420, 'Williams', 'Simeon', 'CS', 'UG', 'BSCS'),
+(369, '2003-04', 200420, 'Williams', 'Simeon', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (370, '2003-04', 200420, 'Ortiz', 'Diana', 'CS', 'UG', 'BSCS'),
 (371, '2003-04', 200420, 'Robles', 'Raul', 'CS', 'UG', 'BSCS'),
 (372, '2003-04', 200420, 'Pham', 'Thientam', 'CS', 'UG', 'BSCS'),
@@ -511,7 +531,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (403, '2003-04', 200420, 'Pajaro', 'Jesus', 'CS', 'GR', 'MS'),
 (404, '2003-04', 200420, 'Maganti', 'Ratnakar', 'CS', 'GR', 'MS'),
 (405, '2003-04', 200420, 'Kim', 'Myoung', 'CS', 'GR', 'MS'),
-(406, '2003-04', 200420, 'Policherla', 'Rupa', 'CS', 'GR', 'MS'),
+(406, '2003-04', 200420, 'Policherla', 'Rupa', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (407, '2003-04', 200420, 'Prodduturi', 'Naresh', 'CS', 'GR', 'MS'),
 (408, '2003-04', 200420, 'Nevarez', 'Sylvia', 'MIT ', 'GR', 'MIT '),
 (409, '2003-04', 200420, 'Duran', 'Angelica', 'MIT ', 'GR', 'MIT '),
@@ -548,7 +570,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (440, '2004-05', 200510, 'Hollingsed', 'Tasha', 'CS', 'UG', 'BSCS'),
 (441, '2004-05', 200510, 'Garcia', 'Luis', 'CS', 'UG', 'BSCS'),
 (442, '2004-05', 200510, 'Zacharias', 'Pedro', 'CS', 'UG', 'BSCS'),
-(443, '2004-05', 200510, 'Lopez', 'Jose', 'CS', 'UG', 'BSCS'),
+(443, '2004-05', 200510, 'Lopez', 'Jose', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (444, '2004-05', 200510, 'Garcia', 'Laura', 'CS', 'UG', 'BSCS'),
 (445, '2004-05', 200510, 'Correa', 'Ricardo', 'CS', 'UG', 'BSCS'),
 (446, '2004-05', 200510, 'Chirayath', 'Vinod', 'CS', 'GR', 'MS'),
@@ -585,7 +609,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (477, '2004-05', 200520, 'Namit', 'Brian', 'CS', 'UG', 'BSCS'),
 (478, '2004-05', 200520, 'Diaz', 'Patrick', 'CS', 'UG', 'BSCS'),
 (479, '2004-05', 200520, 'Cervera', 'Jaime', 'CS', 'UG', 'BSCS'),
-(480, '2004-05', 200520, 'Martinez', 'Roxanne', 'CS', 'UG', 'BSCS'),
+(480, '2004-05', 200520, 'Martinez', 'Roxanne', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (481, '2004-05', 200520, 'Acosta', 'Carlos', 'CS', 'UG', 'BSCS'),
 (482, '2004-05', 200520, 'Rios', 'Juan', 'CS', 'UG', 'BSCS'),
 (483, '2004-05', 200520, 'Guerra', 'Gaspar', 'CS', 'UG', 'BSCS'),
@@ -622,7 +648,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (514, '2005-06', 200610, 'De Santiago', 'Gladis', 'CS', 'UG', 'BSCS'),
 (515, '2005-06', 200610, 'Elizalde', 'Edith', 'CS', 'UG', 'BSCS'),
 (516, '2005-06', 200610, 'Nair', 'Smitha', 'CS', 'UG', 'BSCS'),
-(517, '2005-06', 200610, 'Ramirez', 'Rodrigo', 'CS', 'UG', 'BSCS'),
+(517, '2005-06', 200610, 'Ramirez', 'Rodrigo', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (518, '2005-06', 200610, 'Sanchez', 'Luis', 'CS', 'UG', 'BSCS'),
 (519, '2005-06', 200610, 'Morales', 'Edgar', 'CS', 'UG', 'BSCS'),
 (520, '2005-06', 200610, 'Garcia Martinez', 'Omar', 'CS', 'UG', 'BSCS'),
@@ -659,7 +687,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (551, '2005-06', 200620, 'Garay', 'Olga', 'CS', 'UG', 'BSCS'),
 (552, '2005-06', 200620, 'Tejeda', 'Raul', 'CS', 'UG', 'BSCS'),
 (553, '2005-06', 200620, 'Sandoval', 'Armando', 'CS', 'UG', 'BSCS'),
-(554, '2005-06', 200620, 'Flores', 'Rolando', 'CS', 'UG', 'BSCS'),
+(554, '2005-06', 200620, 'Flores', 'Rolando', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (555, '2005-06', 200620, 'Carrizales', 'Ruben', 'CS', 'UG', 'BSCS'),
 (556, '2005-06', 200620, 'Garza', 'Jorge', 'CS', 'UG', 'BSCS'),
 (557, '2005-06', 200620, 'Kramer', 'Kendra', 'CS', 'UG', 'BSCS'),
@@ -696,7 +726,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (588, '2006-07', 200710, 'Bologna', 'Antonio', 'CS', 'UG', 'BSCS'),
 (589, '2006-07', 200710, 'Pacheco', 'Rafael', 'CS', 'UG', 'BSCS'),
 (590, '2006-07', 200710, 'Velador', 'Salwah', 'CS', 'UG', 'BSCS'),
-(591, '2006-07', 200710, 'Lopez', 'Guillermo', 'CS', 'UG', 'BSCS'),
+(591, '2006-07', 200710, 'Lopez', 'Guillermo', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (592, '2006-07', 200710, 'Barba', 'Joel', 'CS', 'UG', 'BSCS'),
 (593, '2006-07', 200710, 'Pajaro Grajeda', 'Francisco', 'CS', 'UG', 'BSCS'),
 (594, '2006-07', 200710, 'Escarcega', 'Perla', 'CS', 'UG', 'BSCS'),
@@ -733,7 +765,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (625, '2006-07', 200720, 'Brady', 'Jerald', 'CS', 'UG', 'BSCS'),
 (626, '2006-07', 200720, 'Flores', 'David', 'CS', 'GR', 'MS'),
 (627, '2006-07', 200720, 'Licon', 'Salvador', 'CS', 'GR', 'MS'),
-(628, '2006-07', 200720, 'Ramineni', 'Kala', 'CS', 'GR', 'MS'),
+(628, '2006-07', 200720, 'Ramineni', 'Kala', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (629, '2006-07', 200720, 'Tai', 'Wai Yan Elsa', 'CS', 'GR', 'MS'),
 (630, '2006-07', 200720, 'Acosta', 'Jaime', 'CS', 'GR', 'MS'),
 (631, '2006-07', 200720, 'Sahadevan', 'Samson Joseph', 'CS', 'GR', 'MS'),
@@ -770,7 +804,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (662, '2007-08', 200810, 'Hunt', 'William', 'CS', 'UG', 'BSCS'),
 (663, '2007-08', 200810, 'Aguilar', 'Joaquin', 'CS', 'UG', 'BSCS'),
 (664, '2007-08', 200810, 'Rodarte', 'Xochitlcualtzin', 'CS', 'UG', 'BSCS'),
-(665, '2007-08', 200810, 'Holland', 'Robert', 'CS', 'UG', 'BSCS'),
+(665, '2007-08', 200810, 'Holland', 'Robert', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (666, '2007-08', 200810, 'Carrazco', 'Ivan', 'CS', 'UG', 'BSCS'),
 (667, '2007-08', 200810, 'Leon', 'Victor', 'CS', 'UG', 'BSCS'),
 (668, '2007-08', 200810, 'Ruiz-Salazar', 'Lorenzo', 'CS', 'UG', 'BSCS'),
@@ -807,7 +843,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (699, '2007-08', 200820, 'Elizalde', 'Edith', 'CS', 'GR', 'MS'),
 (700, '2007-08', 200820, 'Perez', 'Luis', 'CS', 'GR', 'MS'),
 (701, '2007-08', 200820, 'Rubio-Medrano', 'Carlos', 'CS', 'GR', 'MS'),
-(702, '2007-08', 200820, 'Cortes', 'Antonio', 'CS', 'GR', 'MS'),
+(702, '2007-08', 200820, 'Cortes', 'Antonio', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (703, '2007-08', 200820, 'Yeddu', 'Sekreni', 'MIT', 'GR', 'MIT'),
 (704, '2007-08', 200820, 'Acosta', 'Philip', 'MIT', 'GR', 'MIT'),
 (705, '2007-08', 200820, 'Lowe', 'Brian', 'MIT', 'GR', 'MIT'),
@@ -844,7 +882,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (736, '2008-09', 200910, 'Wangchuk', 'Tsheten', 'MIT', 'GR', 'MIT'),
 (737, '2008-09', 200910, 'Kothagundla', 'Balajyothi', 'MIT', 'GR', 'MIT'),
 (738, '2008-09', 200910, 'Rolon', 'Paul', 'MIT', 'GR', 'MIT'),
-(739, '2008-09', 200910, 'Pervatoju Vishwabramha', 'Lakshman', 'MIT', 'GR', 'MIT'),
+(739, '2008-09', 200910, 'Pervatoju Vishwabramha', 'Lakshman', 'MIT', 'GR', 'MIT');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (740, '2008-09', 200910, 'Avila', 'Blasa', 'MIT', 'GR', 'MIT'),
 (741, '2008-09', 200920, 'Yeep', 'Cesar', 'CS', 'UG', 'BSCS'),
 (742, '2008-09', 200920, 'Medina', 'Brenda', 'CS', 'UG', 'BSCS'),
@@ -880,9 +920,10 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (772, '2009-10', 201010, 'Fregoso', 'Luis', 'CS', 'UG', 'BSCS'),
 (773, '2009-10', 201010, 'Whitman', 'Nicolle', 'CS', 'UG', 'BSCS'),
 (774, '2009-10', 201010, 'Chakraborty', 'Manali', 'CS', 'GR', 'MS'),
-(775, '2009-10', 201010, 'Vela Garcia', 'Corina', 'CS', 'GR', 'MS');
+(775, '2009-10', 201010, 'Vela Garcia', 'Corina', 'CS', 'GR', 'MS'),
+(776, '2009-10', 201010, 'Sarcar', 'Amritam', 'CS', 'GR', 'MS');
+
 INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
-(776, '2009-10', 201010, 'Sarcar', 'Amritam', 'CS', 'GR', 'MS'),
 (777, '2009-10', 201010, 'Andrade', 'Oscar', 'CS', 'GR', 'MS'),
 (778, '2009-10', 201010, 'Favela-Macias', 'Jorge', 'IT', 'GR', 'MSIT'),
 (779, '2009-10', 201010, 'Rimkus', 'Christian', 'IT', 'GR', 'MSIT'),
@@ -919,7 +960,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (810, '2009-10', 201020, 'Corona-Ayala', 'Manuel', 'CS', 'UG', 'BSCS'),
 (811, '2009-10', 201020, 'Valenzuela', 'Cesar', 'CS', 'UG', 'BSCS'),
 (812, '2009-10', 201020, 'Estrada', 'Valeria', 'CS', 'UG', 'BSCS'),
-(813, '2009-10', 201020, 'Romo', 'Jessica', 'CS', 'UG', 'BSCS'),
+(813, '2009-10', 201020, 'Romo', 'Jessica', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (814, '2009-10', 201020, 'Samant', 'Swapnil', 'CS', 'GR', 'MS'),
 (815, '2009-10', 201020, 'Jose', 'Arun', 'IT', 'GR', 'MSIT'),
 (816, '2009-10', 201020, 'Giandoni', 'Matthew', 'IT', 'GR', 'MSIT'),
@@ -956,7 +999,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (847, '2010-11', 201120, 'Zorrilla', 'Omar', 'CS', 'UG', 'BSCS'),
 (848, '2010-11', 201120, 'Saenz', 'Yair', 'CS', 'UG', 'BSCS'),
 (849, '2010-11', 201120, 'Latimer', 'Andrew', 'CS', 'UG', 'BSCS'),
-(850, '2010-11', 201120, 'Salazar', 'Daniel', 'CS', 'UG', 'BSCS'),
+(850, '2010-11', 201120, 'Salazar', 'Daniel', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (851, '2010-11', 201120, 'Veliz', 'Adrian', 'CS', 'UG', 'BSCS'),
 (852, '2010-11', 201120, 'Griffin', 'Sandra', 'CS', 'UG', 'BSCS'),
 (853, '2010-11', 201120, 'Soto', 'Michelle', 'CS', 'UG', 'BSCS'),
@@ -993,7 +1038,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (884, '2011-12', 201210, 'Duong', 'Hieu', 'CS', 'UG', 'BSCS'),
 (885, '2011-12', 201210, 'Pruitt', 'David', 'CS', 'UG', 'BSCS'),
 (886, '2011-12', 201210, 'Pizana Gamez', 'Fabian', 'CS', 'UG', 'BSCS'),
-(887, '2011-12', 201210, 'Navarro', 'Jose', 'CS', 'UG', 'BSCS'),
+(887, '2011-12', 201210, 'Navarro', 'Jose', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (888, '2011-12', 201210, 'Mc Cartney', 'Joshua', 'CS', 'UG', 'BSCS'),
 (889, '2011-12', 201210, 'Quintana', 'Joel', 'CS', 'UG', 'BSCS'),
 (890, '2011-12', 201210, 'Ontiveros', 'Oscar', 'CS', 'UG', 'BSCS'),
@@ -1030,7 +1077,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (921, '2011-12', 201220, 'Aguirre', 'Diego', 'CS', 'UG', 'BSCS'),
 (922, '2011-12', 201220, 'Zuverza', 'Jorge', 'CS', 'UG', 'BSCS'),
 (923, '2011-12', 201220, 'Reyna', 'Joaquin', 'CS', 'UG', 'BSCS'),
-(924, '2011-12', 201220, 'Franco Gutierrez', 'Noemi', 'CS', 'UG', 'BSCS'),
+(924, '2011-12', 201220, 'Franco Gutierrez', 'Noemi', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (925, '2011-12', 201220, 'Torres Escobedo', 'Luis', 'CS', 'UG', 'BSCS'),
 (926, '2011-12', 201220, 'Ogrey', 'Alexandria', 'CS', 'UG', 'BSCS'),
 (927, '2011-12', 201220, 'Dattagupta', 'Aritra', 'CS', 'GR', 'MS'),
@@ -1067,7 +1116,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (958, '2012-13', 201320, 'Moreno Pineda', 'George', 'CS', 'UG', 'BSCS'),
 (959, '2012-13', 201320, 'Franco', 'Adrian', 'CS', 'UG', 'BSCS'),
 (960, '2012-13', 201320, 'Chaparro Flores', 'Victor', 'CS', 'UG', 'BSCS'),
-(961, '2012-13', 201320, 'Guevara', 'Claudia', 'CS', 'UG', 'BSCS'),
+(961, '2012-13', 201320, 'Guevara', 'Claudia', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (962, '2012-13', 201320, 'Donoso', 'Ivan', 'CS', 'UG', 'BSCS'),
 (963, '2012-13', 201320, 'Duran', 'Christopher', 'CS', 'UG', 'BSCS'),
 (964, '2012-13', 201320, 'Gutierrez Holguin', 'Luis', 'CS', 'UG', 'BSCS'),
@@ -1104,7 +1155,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (995, '2012-13', 201330, 'Chambers', 'Curtis', 'CS', 'UG', 'BSCS'),
 (996, '2012-13', 201330, 'Gonzalez', 'Heriberto', 'CS', 'UG', 'BSCS'),
 (997, '2012-13', 201330, 'Beorlegui', 'Begona', 'CS', 'UG', 'BSCS'),
-(998, '2012-13', 201330, 'Subramanian', 'Suresh', 'CS', 'GR', 'MS'),
+(998, '2012-13', 201330, 'Subramanian', 'Suresh', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (999, '2012-13', 201330, 'Islam', 'Md Towhidul', 'CS', 'GR', 'MS'),
 (1000, '2012-13', 201330, 'Jahid', 'Md', 'CS', 'GR', 'MS'),
 (1001, '2012-13', 201330, 'Parra', 'Jaime', 'CS', 'GR', 'MS'),
@@ -1141,7 +1194,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (1032, '2013-14', 201410, 'Garcia', 'Alexis', 'CS', 'UG', 'BSCS'),
 (1033, '2013-14', 201410, 'Galindo', 'Monica', 'CS', 'UG', 'BSCS'),
 (1034, '2013-14', 201410, 'Lopez', 'Crystal', 'CS', 'UG', 'BSCS'),
-(1035, '2013-14', 201410, 'Rodriguez', 'Juan', 'CS', 'UG', 'BSCS'),
+(1035, '2013-14', 201410, 'Rodriguez', 'Juan', 'CS', 'UG', 'BSCS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (1036, '2013-14', 201410, 'Yeep', 'Cesar', 'CS', 'GR', 'MS'),
 (1037, '2013-14', 201410, 'Vela Loya', 'Silvia', 'CS', 'GR', 'MS'),
 (1038, '2013-14', 201410, 'Khan', 'Mohammad Shajib', 'CS', 'GR', 'MS'),
@@ -1178,7 +1233,9 @@ INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `maj
 (1069, '2013-14', 201420, 'Torres Escobedo', 'Luis', 'CS', 'GR', 'MS'),
 (1070, '2013-14', 201420, 'Mudunuri', 'Lalitha Snigdha', 'CS', 'GR', 'MS'),
 (1071, '2013-14', 201420, 'Mc Cartney', 'Joshua', 'CS', 'GR', 'MS'),
-(1072, '2013-14', 201420, 'Barua', 'Aditi', 'CS', 'GR', 'MS'),
+(1072, '2013-14', 201420, 'Barua', 'Aditi', 'CS', 'GR', 'MS');
+
+INSERT INTO `master` (`master_id`, `academicyear`, `term`, `last`, `first`, `major`, `level`, `degree`) VALUES
 (1073, '2013-14', 201420, 'Torres', 'Lillian', 'CS', 'GR', 'MS'),
 (1074, '2013-14', 201420, 'Villarreal', 'Sergio', 'IT', 'GR', 'MSIT'),
 (1075, '2013-14', 201420, 'Ramirez Garcia', 'Geovany', 'CSCI', 'DR', 'PHD'),
