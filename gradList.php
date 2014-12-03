@@ -17,9 +17,9 @@
 	/* Find the start depending on $_GET['page'] (declared if it's null) */
 	$start = $p->findStart($limit);
 	
-	$dbh = mysql_connect ("localhost", "root", "sk@t3low1432") or die ('I cannot connect to the database because: ' . mysql_error());
+	$dbh = mysqli_connect("localhost", "team9", "1234") or die ('I cannot connect to the database because: ' . mysql_error());
 	
-	mysql_select_db("cs5339team9fa14");
+	mysqli_select_db("cs5339team9fa14");
 	
 	$var = isset($_GET['searchGrad']) && $_GET['searchGrad'] != "" ? "'.*" . $_GET["searchGrad"] .".*'" : null;
 	$qry = "SELECT * FROM master ";
