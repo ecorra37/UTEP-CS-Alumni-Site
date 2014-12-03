@@ -20,9 +20,9 @@ function toggle() {
 <div class="rectangle">
 	<ul id="navigation">
 		<li><a href="./index.php"><span id="highlight">Home</span></a></li>
-		<li><a href="./Store.php">Store</a></li>
-		<li><a href="./Find.php">Find Graduate</a></li>
-		<li><a href="./About.php">About Us</a></li>
+		<li><a href="./store.php">Store</a></li>
+		<li><a href="./find.php">Find Graduate</a></li>
+		<li><a href="./about.php">About Us</a></li>
 		
 			<?php if($configSite->CheckLogin()){?>
 		<li><a href="./loginprofile.php">Profile</a></li>

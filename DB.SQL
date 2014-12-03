@@ -1,3 +1,5 @@
+CREATE DATABASE cs5339team9fa14;
+
 CREATE TABLE master (
 	master_id INT(11) NOT NULL AUTO_INCREMENT,
 	academicyear VARCHAR(30) NULL,
@@ -8,7 +10,7 @@ CREATE TABLE master (
 	level VARCHAR(30) NULL,
 	degree VARCHAR(30) NULL,
 	PRIMARY KEY (master_id)
-) ENGINE-InnoDB;
+) ENGINE=InnoDB;
 
 CREATE TABLE users (
 	user_id	INT(11) NOT NULL AUTO_INCREMENT,

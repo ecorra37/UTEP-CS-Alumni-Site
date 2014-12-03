@@ -1,8 +1,8 @@
-.main_content{
-	width: 800px;
+.main-content{
+	;
 }
 
-ul {
+ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -70,4 +70,8 @@ body{
 
 .aboutUs{
 	font-weight: bold;
+}
+
+footer{
+	text-align: center;
 }
