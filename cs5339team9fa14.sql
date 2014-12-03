@@ -1241,7 +1241,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` char(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `first` varchar(50) NOT NULL,
   `last` varchar(50) NOT NULL,
@@ -1270,8 +1270,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `first`, `last`
 (3, 'madhu', 'test', 'm@test.com', 'mfirst', 'mlast', 'Mr', 'f', 'el paso', '1700 utep', 'hi this is madhu welcome to my page', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
 (4, 'hari', 'test', 'ha@test.com', 'hfirst', 'hlast', 'Mr', 'f', 'el paso', '1700', 'hi this is hari', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
 (5, 'siri', 'test', 's@test.com', 'stest', 'slast', 'Ms', 'f', 'el paso', '1700', 'siri''s profile', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
-(6, 'mike', 'test', 'mike@test.com', 'mfirst', 'mlast', NULL, 'm', 'el paso', '1700 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
-
+(6, 'mike', 'test', 'mike@test.com', 'mfirst', 'mlast', NULL, 'm', 'el paso', '1700 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
+(7, 'ecorral2', md5('test'), 'ecorral2@test.com', 'Eduardo', 'Corral', NULL, 'm', 'el paso', '1700 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
 -- --------------------------------------------------------
 
 --
