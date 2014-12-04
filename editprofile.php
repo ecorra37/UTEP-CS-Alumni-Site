@@ -1,15 +1,14 @@
-<?php
-	include('include/db.php');
-	include('include/dbEC.php');
-	session_start();
+ <?php
+ include('include/db.php');
+session_start();
 
-	if(!$configSite->Checklogin()){
-		$configSite->redirectToURL("./access_denied.php");
-	}
+if (!(isset($_SESSION['login_status']))) {
 
-	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
+header ("Location: access_denied.php");
+}
+
+$login_user= $_SESSION['login_user'];
 ?>
-
 <!DOCTYPE html>
  <html class="no-js"> <!--<![endif]-->
     <head>
@@ -43,6 +42,7 @@
 <?php }
 else {
 ?>
+
 </div>
 
 
@@ -205,6 +205,15 @@ echo "<h4>Edit or Update Account</h4></br>";
 		</form>
 
 	</div>
+  <hr />
+<h4>Upload your profile pic</h4>
+
+<form action="upload_photo.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload"><br/>
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+<hr />
 
   </div>
 
