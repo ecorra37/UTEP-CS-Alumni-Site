@@ -39,8 +39,8 @@ else {
 		
 		
         <div>
-        <h2>Items for sale:</h2>
-        <table border='1'>
+        <h2>Available Items For Sale:</h2>
+		<table border='1'>
 			<tr>
 				<th>Product ID</th>
 				<th>Category</th>
@@ -54,12 +54,12 @@ else {
 				<?php
 				$db = 'cs5339teamxfa14';
 				require('mysqli_con.php');
-				
 				$query 	= 'SELECT * FROM items ORDER BY category ASC';
 				$result = mysqli_query($con,$query);
+						$in_stock = 0;
 				while($row =  mysqli_fetch_assoc($result)){
-					$in_stock = 0;
 					if ($row['quantity']>0){
+						$in_stock = 0;
 				?>
 			<tr>
 				<td><?php echo $row['item_id']?></td>
@@ -72,12 +72,16 @@ else {
 			</tr>
 				<?php
 					++$in_stock;
-					echo '<span style="color:red;"><b>'.(4-$in_stock).'</b> item(s) out of stock. Sorry!</span>';
-					}//replace 4 by a variable that hosts the total number of items 
+					}
 				}
-				echo($in_stock > 4 ? 'ALL ITEMS FOR SALE ARE OUT OF STOCK!' : NULL);
+				$out_of_stock = (4-$in_stock);
+				echo '<span style="color:red;"><b>'.$out_of_stock.'</b> item(s) out of stock. Sorry!</span>';
 				?>
 		</table>
+				<?php 
+				echo '<br>';
+				echo($in_stock == 0 ? '<span style="color:red;">"ALL ITEMS FOR SALE ARE <u>OUT OF STOCK</u>. SORRY FOR THE INCONVENIENCE!"</span>' : NULL);
+				?>
         </div>
         
 	</body>
