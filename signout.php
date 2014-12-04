@@ -9,6 +9,9 @@
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body style="text-align: center;">
+		<div id="navigation_container">
+			<?php include './menu.php'?>
+		</div>
 		<h2>You have logged out!</h2>
 	</body>
 </html>
