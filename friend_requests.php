@@ -38,12 +38,12 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="/js/plugins.js"></script>
         <script src="/js/main.js"></script>
-        
+<div id="pageMiddle">
    <?php
   
    $user_from='';
    $query= "select * from friend_requests WHERE user_id_to='$login_user' and request_status='0'";
-echo $login_user;
+//echo $login_user;
 $getquery=mysqli_query($con, $query);
 $count = mysqli_num_rows($getquery);
 
@@ -79,6 +79,6 @@ while ($row= mysqli_fetch_assoc($getquery))
 
 
 
-
+</div>
     </body>
 </html>

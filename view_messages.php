@@ -43,7 +43,7 @@
     </div>
 <?php }?>
 </div>
-
+<div id="pageMiddle">
 <?php
 
 echo "<h3>View your messages below</h3><br/>";
@@ -114,12 +114,6 @@ else
 
 ?>
 
-
-
-
-
-
-
-
+</div>
 </body>
 </html>

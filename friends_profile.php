@@ -1,5 +1,6 @@
 <?php
  include('include/db.php');
+ include('include/dbEC.php');
 session_start();
 
 if(!$configSite->CheckLogin()){
@@ -45,7 +46,7 @@ if(!$configSite->CheckLogin()){
 if(!isset($_GET['u']))
 {
 	// to show login user profile
-	$username=$login_user;
+	$username = $login_user;
     $_SESSION['profile_user']=$username; 
 
 }
@@ -126,28 +127,29 @@ echo " <div class='posted_by'> $added_by  $date_added </div>&nbsp;&nbsp;$body<br
 </div>
 <img src="./img/ice1.jpg" height="200" width="200" alt="<?php echo $username;?>'s profile" title="<?php echo $username;?>'s profile"/>
 <br/>
-<?php if($login_user==$_SESSION['profile_user'])
-{
+<?php //if($login_user==$_SESSION['profile_user'])
+//{
 	//do nothing
-}
-else
-{ // show add frind and send message buttons
+//}
+//else
+//{ // show add frind and send message buttons
 //echo "$msg";	
 
 	
 $getquery= "select * from friend_requests WHERE user_id_from='$username' and user_id_to='$login_user'";
 
 $newuser=mysqli_query($con,$getquery);
+$count = 0;
+if($getquery != null){ $count = mysqli_num_rows($newuser);}
 
-$count=  mysqli_num_rows($newuser);
       
 if($count==0)
 {
-	/*echo "<form action ='send_request.php' method='POST'>";
+	echo "<form action ='send_request.php' method='POST'>";
 	echo "<input type='hidden' name='add_request' value=''>";
 	echo "<input type='submit' name='addFriend' value='Add Friend'/>";
 	echo "</form>";
-	*/
+	
 	echo "<br/>";
 	echo "<form action='send_message.php'>";
 	echo "<input type='submit' name='sendmsg' value='Send Message'/>";
@@ -162,7 +164,7 @@ echo "</form>";
 echo "<br/>";
 
 }
-}
+//}
 ?>
 
 <div class="textHeader"><?php echo $username;?>'s Profile</div>

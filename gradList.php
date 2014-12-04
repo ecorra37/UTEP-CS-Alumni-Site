@@ -104,8 +104,12 @@
 					<td>
 					<?PHP //search if the user has already been added to the system.
 						  //if so, then do not show the add button?>
-							<input type="submit" name="addUser" onclick="<?PHP=$configSite->addUser(); ?>" value="Add"/>
-					<?PHP ?>
+						
+						
+		               <?php $fn=$row['first'];
+		
+	echo "<a href='friends_profile.php?u=$fn'>View Profile</a><br/>";
+					 ?>
 					</td>
 				</tr>
 				<?PHP } ?>

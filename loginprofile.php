@@ -26,21 +26,7 @@ if(!$configSite->CheckLogin()){
 <body>
 
 <div id="navigation_container">
-         <div class="rectangle">
-        <ul id="navigation">
-
-            <li><a href="index.php"><span id="highlight">Home</span></a></li>
-            <li><a href="Store.php">Store</a></li>
-            <li><a href="Find.php">Find Graduate</a></li>
-            <li><a href="About.php">About Us</a></li>
-                       <?php if ((isset($_SESSION['login_status']))) {
-?>
-
-            <li> <a href="loginprofile.php"">Profile</a></li>
-              <li> <a href="signout.php">Sign Out</a></li>
-        </ul>
-    </div>
-<?php }?>
+<?php include './menu.php';?>
 </div>
  <div id="welcome">
             <p>
@@ -103,6 +89,22 @@ if(!$configSite->CheckLogin()){
                 echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> You rejected your friend request</P></br>";  
               }
               }
+			  
+              ?>
+			  <?php  
+              if (isset($_GET['$f_status']))
+              {
+              $Message = $_GET['$f_status'];
+              if($Message=="true")
+              {
+                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> Your friend request sent</P></br>";
+              }
+              else 
+              {
+                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> Problem in sending</P></br>";  
+              }
+              }
+	
               ?>
 <div id="view_list">
 <a href="friend_requests.php" >View Friend Requests</a>
@@ -247,6 +249,8 @@ while ($row= mysqli_fetch_assoc($getquery))
 	if($loginuser_from!=$login_user)
 	{
 		$fn=$loginuser_from;
+		//$fn => friend name
+		//based off the $fn we get the profile and display in friends_profile.php file.
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
 	}
 		if($loginuser_to!=$login_user)
