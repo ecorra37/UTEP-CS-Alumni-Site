@@ -1,9 +1,6 @@
 <?php
 	include('include/dbEC.php');
 	include('include/db.php');
-	/*session_start();
-
-	isset($_SESSION['login_user']) ? $username = $_SESSION['login_user'] : header ("Location: access_denied.php");*/
 	
 	if(!$configSite->Checklogin()){
 		$configSite->redirectToURL("./access_denied.php");
