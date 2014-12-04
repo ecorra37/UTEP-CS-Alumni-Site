@@ -240,7 +240,6 @@ if($count==0)
 } else {
 while ($row= mysqli_fetch_assoc($getquery))
 {
-	
 	$loginuser_from= $row['user_id_from'];
 	$loginuser_to= $row['user_id_to'];
 	
@@ -253,7 +252,7 @@ while ($row= mysqli_fetch_assoc($getquery))
 		if($loginuser_to!=$login_user)
 	{
 		$fn=$loginuser_to;
-	echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
+		echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
 	}
 }
 }

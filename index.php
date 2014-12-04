@@ -28,9 +28,20 @@
 			<div>
 				<?PHP include './menu.php'?>
 			</div>
+			<div id="pageMiddle">
+<p >
+
+<h3>Welcome to UTEP CS Alumni Association.</h3>
+
+</p>
+<img src="img/CS-Promo-Building.jpg" alt="utep cs" width="500" align="middle"/>
+
+
+</div>
 			<div>
 				<?PHP include './footer.php'; ?>
 			</div>
 		</div>
+		
 	</body>
 </html>

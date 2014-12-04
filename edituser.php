@@ -1,9 +1,15 @@
- <?php
- include('include/db.php');
-session_start();
+<?php
+	include('include/db.php');
+	include('include/dbEC.php');
+	session_start();
 
-$login_user= $_SESSION['login_user'];
+	if(!$configSite->Checklogin()){
+		$configSite->redirectToURL("./access_denied.php");
+	}
+
+	($configSite->userName() == NULL) ? $login_user = " " : $login_user = $configSite->userName();
 ?>
+
 <?php
 include_once('include/db.php');
        $email	=sanitizeString($_POST['email']);

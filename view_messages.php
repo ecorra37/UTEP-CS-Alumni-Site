@@ -48,11 +48,11 @@
 
 echo "<h3>View your messages below</h3><br/>";
 
-
+$count = 0;
    $query= "select * from messages WHERE msg_to='$login_user' and msg_status='0'";
 
-$getquery=mysqli_query($con,$query);
-$count = mysqli_num_rows($getquery);
+$getquery = mysqli_query($con, $query);
+if($getquery != null){ $count = mysqli_num_rows($getquery);}
 
 if($count==0)
 {
