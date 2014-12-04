@@ -1,8 +1,12 @@
- <?php
- include('include/db.php');
-session_start();
-$login_user= $_SESSION['login_user'];
+<?php
+	include('include/db.php');
+	session_start();
 
+	if(!$configSite->Checklogin()){
+		$configSite->redirectToURL("./access_denied.php");
+	}
+
+	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
 ?>
   <?php	
  // TODO need to chekc for all users wrking only for last request	

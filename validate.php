@@ -53,4 +53,3 @@ function sanitizeString($var)
     return $var;
 }
 ?>
-

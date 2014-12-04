@@ -1,14 +1,14 @@
 <?php
- include('include/db.php');
-session_start();
+	include('include/db.php');
+	session_start();
 
-if (!(isset($_SESSION['login_status']))) {
+	if(!$configSite->Checklogin()){
+		$configSite->redirectToURL("./access_denied.php");
+	}
 
-header ("Location: access_denied.php");
-}
-
-$login_user= $_SESSION['login_user'];
+	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head lang="en">

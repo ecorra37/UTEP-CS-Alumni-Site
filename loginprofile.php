@@ -1,13 +1,13 @@
  <?php
  include('include/db.php');
+ include('include/dbEC.php');
 session_start();
 
-if (!(isset($_SESSION['login_status']))) {
-
-header ("Location: access_denied.php");
+if(!$configSite->CheckLogin()){
+	$configSite->RedirectToURL("./access_denied.php");
 }
 
-$login_user= $_SESSION['login_user'];
+($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,6 @@ $login_user= $_SESSION['login_user'];
             <p>
 
             Welcome <?php echo "<b>" .$login_user. "</b>"; ?>
-
 </p></div>
 
  <?php  
@@ -114,8 +113,8 @@ $login_user= $_SESSION['login_user'];
 </div>
 <?php
 	// to show login user profile
-	$username=$login_user;
-    $_SESSION['profile_user']=$username; 
+	$username = $login_user;
+    $_SESSION['profile_user'] = $username; 
 
 if(ctype_alnum($username))
 {
@@ -207,11 +206,15 @@ echo "<b>Last Name : </b>". $lname. "<br/>";
 
 
 $getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
-$getbio=mysqli_query($con,$getquery);
+$getbio=mysqli_query($con, $getquery);
 
-while ($row= mysqli_fetch_assoc($getbio))
+while ($row = mysqli_fetch_assoc($getbio))
 {
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 $property_name=$row['property_name'];
 $property_value=$row['property_value'];
 $hide_status=$row['hide_status'];
@@ -222,7 +225,10 @@ echo "<b>$property_name : </b>". $property_value. "<br/>";
 }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 ?>
 
 <a href="privacy_settings.php" >Privacy Settings</a>
@@ -263,16 +269,14 @@ while ($row= mysqli_fetch_assoc($getquery))
 		$fn=$loginuser_to;
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
 	}
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> origin/master
 }
 }
-	
 ?>
-
-
 </div>
-
-
 </body>
 </html>
