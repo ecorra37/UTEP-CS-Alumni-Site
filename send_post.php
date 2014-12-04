@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 session_start();
 include('include/db.php');
@@ -14,6 +15,11 @@ $user_posted_to =$_SESSION['profile_user'];
     //$queryselect="SELECT * FROM users WHERE email='$email'";
      
     $result=mysqli_query($con,$postquery);
+=======
+<?php
+	include('include/dbEC.php');
+	include('include/db.php');
+>>>>>>> origin/master
 	
 }
 else

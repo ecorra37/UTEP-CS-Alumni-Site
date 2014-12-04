@@ -292,6 +292,28 @@ class ConfigSite{
 		}
 	}
 	
+	//Hima's set of functions
+	function send_Post(){
+		if(!isset($_POST['submitted'])){
+			return false;
+		}
+		
+		$post = $this->Sanitize($_POST['post']);
+		
+		if($post != ""){
+			$date_added = date("y-m-d");
+			$added_by = $this->userName();
+			$user_posted_to = $_SESSION['profile_user'];
+			
+			$postquery= "INSERT INTO user_posts values('', '$post', '$added_by', '$user_posted_to', '$date_added')";
+			//$queryselect="SELECT * FROM users WHERE email='$email'";
+
+			$result = mysqli_query($con, $postquery);
+		} else {
+			echo "You must enter something in the post field before you can send it...";
+		}
+	}
+	
 	// function to sanitize the user input
 	function sanitizeString($var){
 		$var=  stripcslashes($var);

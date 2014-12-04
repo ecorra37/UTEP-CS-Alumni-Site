@@ -39,8 +39,8 @@ else {
 		
 		
         <div>
-        <h2>Items for sale:</h2>
-        <table border='1'>
+        <h2>Available Items For Sale:</h2>
+		<table border='1'>
 			<tr>
 				<th>Product ID</th>
 				<th>Category</th>
@@ -48,6 +48,7 @@ else {
 				<th>Description</th>
 				<th>Price</th>
 				<th>Picture</th>
+				<th>Payment Method</th>
 				
 			</tr>
 				<?php
@@ -55,7 +56,10 @@ else {
 				require('mysqli_con.php');
 				$query 	= 'SELECT * FROM items ORDER BY category ASC';
 				$result = mysqli_query($con,$query);
+						$in_stock = 0;
 				while($row =  mysqli_fetch_assoc($result)){
+					if ($row['quantity']>0){
+						$in_stock = 0;
 				?>
 			<tr>
 				<td><?php echo $row['item_id']?></td>
@@ -63,19 +67,21 @@ else {
 				<td><?php echo $row['product_name']?></td>
 				<td><?php echo $row['description']?></td>
 				<td><?php echo '$'.$row['price']?></td>
-				<td><?php echo '<img src="img\\'.$row['item_pic'].'" heigth=80px  width=80px>';?></td>
-				<td><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="TZ4CXKB7DJARU">
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" width='100' height='30' border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-				</td>
+				<td><?php echo '<img src="tmp\\'.$row['item_pic'].'" heigth=100px  width=100px>';?></td>
+				<td><?php echo $row['pymt_method']?></td>
 			</tr>
 				<?php
+					++$in_stock;
+					}
 				}
+				$out_of_stock = (4-$in_stock);
+				echo '<span style="color:red;"><b>'.$out_of_stock.'</b> item(s) out of stock. Sorry!</span>';
 				?>
 		</table>
+				<?php 
+				echo '<br>';
+				echo($in_stock == 0 ? '<span style="color:red;">"ALL ITEMS FOR SALE ARE <u>OUT OF STOCK</u>. SORRY FOR THE INCONVENIENCE!"</span>' : NULL);
+				?>
         </div>
         
 	</body>

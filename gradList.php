@@ -17,7 +17,7 @@
 	/* Find the start depending on $_GET['page'] (declared if it's null) */
 	$start = $p->findStart($limit);
 	
-	$dbh = mysql_connect("localhost", "team9", "1234") or die ('I cannot connect to the database because: ' . mysql_error());
+	$dbh = mysql_connect("earth.cs.utep.edu", "cs5339team9fa14", "cs5339!cs5339team9fa14") or die ('I cannot connect to the database because: ' . mysql_error());
 	
 	mysql_select_db("cs5339team9fa14");
 	
@@ -49,23 +49,28 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/table.css">
 		<script src="js/main.js" ></script>
+		
+		
 	</head>
+	<script src="include/sorttable.js"></script>
 	<body>
 		<div id="navigation_container">
 			<?PHP include './menu.php' ?>
 		</div>
 			
-		<table>
-			<thead>
-				<td>Academic Year</td>
-				<td>Term</td>
-				<td>Last</td>
-				<td>First</td>
-				<td>Major</td>
-				<td>Level</td>
-				<td>Degree</td>
-				<td>add</td>
-			</thead>
+		<table  class="sortable">
+				<thead>
+					<tr>
+						<th scope="col">Academic Year</th>
+						<th scope="col">Term</th>
+						<th scope="col">Last</th>
+						<th scope="col">First</th>
+						<th scope="col">Major</th>
+						<th scope="col">Level</th>
+						<th scope="col">Degree</th>
+						<th scope="col">add</th>
+					</tr>
+				</thead>
 			<?PHP 
 				/* Or you can use a simple "Previous | Next" listing if you don't want the numeric page listing */
 				$next_prev = $p->nextPrev($_GET['page'], $pages); 
@@ -74,36 +79,35 @@
 				
 				while($row = mysql_fetch_assoc($result)){
 					$num_rows++;?>
-			<tr>
-				<td>
-					<?PHP echo $row['academicyear']?>
-				</td>
-				<td>
-					<?PHP echo $row['term'] ?>
-				</td>
-				<td>
-					<?PHP echo $row['last'] ?>
-				</td>
-				<td>
-					<?PHP echo $row['first'] ?>
-				</td>
-				<td>
-					<?PHP echo $row['major'] ?>
-				</td>
-				<td>
-					<?PHP echo $row['level'] ?>
-				</td>
-				<td>
-					<?PHP echo $row['degree'] ?>
-				</td>
-				<td>
-				<?PHP //search if the user has already been added to the system.
-					  //if so, then do not show the add button
-					if($configSite->alreadyAdded($row['last'], $row['first'])){?>
-						<input type="submit" name="addUser" onclick="<?PHP=$configSite->addUser(); ?>" value="Add"/>
-				<?PHP }?>
-				</td>
-			</tr>
+				<tr>
+					<td>
+						<?PHP echo $row['academicyear']?>
+					</td>
+					<td>
+						<?PHP echo $row['term'] ?>
+					</td>
+					<td>
+						<?PHP echo $row['last'] ?>
+					</td>
+					<td>
+						<?PHP echo $row['first'] ?>
+					</td>
+					<td>
+						<?PHP echo $row['major'] ?>
+					</td>
+					<td>
+						<?PHP echo $row['level'] ?>
+					</td>
+					<td>
+						<?PHP echo $row['degree'] ?>
+					</td>
+					<td>
+					<?PHP //search if the user has already been added to the system.
+						  //if so, then do not show the add button?>
+							<input type="submit" name="addUser" onclick="<?PHP=$configSite->addUser(); ?>" value="Add"/>
+					<?PHP ?>
+					</td>
+				</tr>
 				<?PHP } ?>
 		</table>
 		<div>
