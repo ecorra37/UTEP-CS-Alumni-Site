@@ -55,7 +55,7 @@ else {
 				$db = 'cs5339teamxfa14';
 				require('mysqli_con.php');
 				$query 	= 'SELECT * FROM items ORDER BY category ASC';
-				$result = mysqli_query($con,$query);
+				$result = mysqli_query($con, $query);
 						$in_stock = 0;
 				while($row =  mysqli_fetch_assoc($result)){
 					if ($row['quantity']>0){

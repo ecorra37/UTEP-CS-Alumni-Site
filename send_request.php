@@ -4,7 +4,6 @@ include('include/db.php');
 
 $post = (isset($_POST['addFriend']) ? $_POST['addFriend'] : null);
 
-
 $request_date = date("y-m-d");
 $user_id_from =$_SESSION['login_user'];
 $user_id_to =$_SESSION['profile_user'];
@@ -13,14 +12,9 @@ $user_id_to =$_SESSION['profile_user'];
     //$queryselect="SELECT * FROM users WHERE email='$email'";
      
     $result=mysqli_query($con,$postquery);
-if($result)
-{
+if($result){
 	echo "record inserted";	
-}
-else
-{
-	
+} else {	
 echo "Error...";	
 }
-
 ?>
