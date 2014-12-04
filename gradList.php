@@ -52,7 +52,7 @@
 		
 		
 	</head>
-	<script src="include/sorttable.js"></script>
+	<script src="script/sorttable.js"></script>
 	<body>
 		<div id="navigation_container">
 			<?PHP include './menu.php' ?>
