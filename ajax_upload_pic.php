@@ -15,7 +15,7 @@
 						document.getElementById('link').innerHTML = b.responseText;
 					}
 				}
-				b.open('GET', 'ajax_edit_profile_pic.php', true);
+				b.open('GET', 'ajax_profile_pic.php', true);
 				b.send();
 			}
 		</script>
