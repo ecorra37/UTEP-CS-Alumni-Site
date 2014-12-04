@@ -1,9 +1,12 @@
  <?php
  include('include/db.php');
-session_start();
+include('include/dbEC.php');
 
-$login_user= $_SESSION['login_user'];
+	if(!$configSite->Checklogin()){
+		$configSite->redirectToURL("./access_denied.php");
+	}
 
+	($configSite->userName() == NULL) ? $login_user = " " : $login_user = $configSite->userName();
 
 $target_dir = "img/user_photos/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -27,9 +30,10 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
+
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
+&& $imageFileType != "gif" && $imageFileType != "PNG") {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
