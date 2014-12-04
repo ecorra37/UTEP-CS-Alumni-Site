@@ -143,11 +143,11 @@ $count=  mysqli_num_rows($newuser);
       
 if($count==0)
 {
-	echo "<form action ='send_request.php' method='POST'>";
+	/*echo "<form action ='send_request.php' method='POST'>";
 	echo "<input type='hidden' name='add_request' value=''>";
 	echo "<input type='submit' name='addFriend' value='Add Friend'/>";
 	echo "</form>";
-	
+	*/
 	echo "<br/>";
 	echo "<form action='send_message.php'>";
 	echo "<input type='submit' name='sendmsg' value='Send Message'/>";
