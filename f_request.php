@@ -1,7 +1,6 @@
 <?php
 	include('include/db.php');
 	include('include/dbEC.php');
-	session_start();
 
 	if(!$configSite->Checklogin()){
 		$configSite->redirectToURL("./access_denied.php");
@@ -20,9 +19,9 @@
 	if(isset($_POST['accept'])){
 		$date_added = date("y-m-d");
 
-		$queryselect = "UPDATE friend_requests SET request_status='1',request_confirm_date='$date_added' WHERE user_id_to='$login_user' and user_id_from='$user_from'";
+		$queryselect = "UPDATE friend_requests SET request_status='1', request_confirm_date='$date_added' WHERE user_id_to='$user_from' and user_id_from='$login_user'";
 
-		$result = mysqli_query($con,$queryselect);
+		$result = mysqli_query($con, $queryselect);
 
 		if($result){
 			// echo "$user_from is your friend now";

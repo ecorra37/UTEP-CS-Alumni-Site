@@ -15,9 +15,9 @@
 
 	$request_date = date("y-m-d");
 	$user_id_from = $login_user;
-	$user_id_to = $_SESSION['profile_user'];
+	$user_id_to = $_GET['u'];
 	//echo "before insert";
-	$postquery = "insert into friend_requests values('','$user_id_from','$user_id_to','$request_date', '','0')";
+	$postquery = "INSERT INTO friend_requests VALUES('', '$user_id_from', '$user_id_to', '$request_date', '', '0')";
 	//$queryselect="SELECT * FROM users WHERE email='$email'";
 
 	$result = mysqli_query($con, $postquery);
