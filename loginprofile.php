@@ -136,10 +136,7 @@ $lname=$get['last'];
 $bio = $get['bio_data'];
 
 //echo "user exist";
-}
-
-else
-{
+} else {
 echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.php\">";
 exit();
 }
@@ -149,9 +146,9 @@ exit();
 // function to sanitize the user input
 function sanitizeString($var)
 {
-    $var=  stripcslashes($var);
-    $var=  strip_tags($var);
-    $var=  htmlentities($var);
+    $var = stripcslashes($var);
+    $var = strip_tags($var);
+    $var = htmlentities($var);
     return $var;
 }
 ?>
@@ -210,11 +207,7 @@ $getbio=mysqli_query($con, $getquery);
 
 while ($row = mysqli_fetch_assoc($getbio))
 {
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> origin/master
 $property_name=$row['property_name'];
 $property_value=$row['property_value'];
 $hide_status=$row['hide_status'];
@@ -225,10 +218,7 @@ echo "<b>$property_name : </b>". $property_value. "<br/>";
 }
 
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 ?>
 
 <a href="privacy_settings.php" >Privacy Settings</a>
@@ -247,11 +237,7 @@ if($count==0)
 {
 	echo "You have no friends";
 	
-}
-else
-{
-	
-	
+} else {
 while ($row= mysqli_fetch_assoc($getquery))
 {
 	
@@ -269,11 +255,6 @@ while ($row= mysqli_fetch_assoc($getquery))
 		$fn=$loginuser_to;
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
 	}
-<<<<<<< HEAD
-	
-	
-=======
->>>>>>> origin/master
 }
 }
 ?>
