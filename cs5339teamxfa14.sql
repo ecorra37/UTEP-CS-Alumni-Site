@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` varchar(50) DEFAULT NULL,
   `bio_data` text,
   `employed` enum('y','n','u') NOT NULL DEFAULT 'u',
-  `profile_pic` blob,
+  `profile_pic` varchar(50) NULL,
   `last_login` date DEFAULT NULL,
   `profile_added` date DEFAULT NULL,
   `active_status` enum('0','1') NOT NULL DEFAULT '0',
