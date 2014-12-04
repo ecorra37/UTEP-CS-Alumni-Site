@@ -26,7 +26,21 @@ $login_user= $_SESSION['login_user'];
 <body>
 
 <div id="navigation_container">
-				<?PHP include './menu.php'?>
+         <div class="rectangle">
+        <ul id="navigation">
+
+            <li><a href="index.php"><span id="highlight">Home</span></a></li>
+            <li><a href="Store.php">Store</a></li>
+            <li><a href="Find.php">Find Graduate</a></li>
+            <li><a href="About.php">About Us</a></li>
+                       <?php if ((isset($_SESSION['login_status']))) {
+?>
+
+            <li> <a href="loginprofile.php"">Profile</a></li>
+              <li> <a href="signout.php">Sign Out</a></li>
+        </ul>
+    </div>
+<?php }?>
 </div>
  <div id="welcome">
             <p>
@@ -39,7 +53,7 @@ $login_user= $_SESSION['login_user'];
               if (isset($_GET['act_update']))
               {
               $Message = $_GET['act_update'];
-              if($Message==true)
+              if($Message=="true")
               {
                   echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> Account Updated Succesfully </P></br>";
               }
@@ -53,7 +67,7 @@ $login_user= $_SESSION['login_user'];
               if (isset($_GET['msg_status']))
               {
               $Message = $_GET['msg_status'];
-              if($Message==true)
+              if($Message=="true")
               {
                   echo "<p style='color:green; font-size: 11pt;font-weight: bold;'>Your message sent to <b>" . $_SESSION['profile_user']. "</b> succesfully </P></br>";
               }
@@ -63,11 +77,25 @@ $login_user= $_SESSION['login_user'];
               }
               }
               ?>
+<?php  
+              if (isset($_GET['privacy_update']))
+              {
+              $Message = $_GET['privacy_update'];
+              if($Message=="true")
+              {
+                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'>You privacy data updated succesfully </P></br>";
+              }
+              else
+              {
+                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> Problem with hiding field. Please try again </P></br>";  
+              }
+              }
+              ?>
                <?php  
               if (isset($_GET['frnd_status']))
               {
               $Message = $_GET['frnd_status'];
-              if($Message==true)
+              if($Message=="true")
               {
                   echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> You accepted your friend request </P></br>";
               }
@@ -172,45 +200,18 @@ echo " <div class='posted_by'> $added_by  $date_added </div>&nbsp;&nbsp;$body<br
 <?php
 // to display profile user data
 
-if(isset($_POST['profile_settings']))
-{
-	$email_status=$_POST['email'];
-	$gender_status=$_POST['gender'];
-	$city_status=$_POST['city'];
-	$address_status=$_POST['address'];
-	
-
-   $queryselect= "UPDATE privacy SET privacy_field_status='$email_status' WHERE username='$login_user' and property_name='email";
-   
-     echo "before update";
-    $result=mysqli_query($con,$queryselect);
-	 if($result)
-    {
-        //echo "record updated succesfully";
-        $act_update = "true";
-        header("Location: loginprofile.php?act_update=".$act_update);
-    }
- else 
-        
- {
-     echo "Problem with updation. Please try again";
-     $act_update = "false";
-        header("Location: loginprofile.php?act_update=".$act_update);
- }
-}
 
 echo "<b>Bio Data : </b>". $bio. "<br/>";
 echo "<b>First Name : </b>". $fname. "<br/>";
 echo "<b>Last Name : </b>". $lname. "<br/>";
 
-//$getquery= "select * from users WHERE username='$username'";
+
 $getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
 $getbio=mysqli_query($con,$getquery);
 
 while ($row= mysqli_fetch_assoc($getbio))
 {
 	
-<<<<<<< HEAD
 $property_name=$row['property_name'];
 $property_value=$row['property_value'];
 $hide_status=$row['hide_status'];
@@ -222,13 +223,6 @@ echo "<b>$property_name : </b>". $property_value. "<br/>";
 
 }
 
-=======
-	if(){
-		
-	}
-	
-	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
->>>>>>> origin/master
 ?>
 
 <a href="privacy_settings.php" >Privacy Settings</a>
@@ -271,7 +265,6 @@ while ($row= mysqli_fetch_assoc($getquery))
 	}
 	
 	
-<<<<<<< HEAD
 }
 }
 	

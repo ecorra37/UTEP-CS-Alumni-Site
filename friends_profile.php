@@ -60,7 +60,7 @@ if(ctype_alnum($username))
 
 //check user exist
 
-$query = "SELECT username,first FROM users WHERE username='$username'";
+$query = "SELECT * FROM users WHERE username='$username'";
 
 $result = mysqli_query($con,$query);
 $count=  mysqli_num_rows($result);
@@ -70,8 +70,9 @@ if($count==1)
 
 $get = mysqli_fetch_assoc($result);
 $username=$get['username'];
-$firstname=$get['first'];
-//echo "user exist";
+$fname=$get['first'];
+$lname=$get['last'];
+$bio = $get['bio_data'];
 }
 else
 {
@@ -168,33 +169,32 @@ echo "<br/>";
 <div class="textHeader"><?php echo $username;?>'s Profile</div>
 <div class="profileleftSideContent">
 <?php
-// to display profile user bio data
-//echo $username;
-$getquery= "select * from users WHERE username='$username'";
+// to display profile user data
 
-$getbio=mysqli_query($con,$getquery);
-
-while ($row= mysqli_fetch_assoc($getbio))
-{
-$bio = $row['bio_data'];
-$email=$row['email'];
-$fname=$row['first'];
-$lname=$row['last'];
-$gender=$row['gender'];
-$city=$row['city'];
-$address=$row['address'];
 
 echo "<b>Bio Data : </b>". $bio. "<br/>";
 echo "<b>First Name : </b>". $fname. "<br/>";
 echo "<b>Last Name : </b>". $lname. "<br/>";
-echo "<b>Email : </b>". $email. "<br/>";
-echo "<b>Gender : </b>". $gender. "<br/>";
-echo "<b>City : </b>". $city. "<br/>";
-echo "<b>Address : </b>". $address. "<br/>";
-}
-?>
 
-</div>
+//$getquery= "select * from users WHERE username='$username'";
+$getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
+$getbio=mysqli_query($con,$getquery);
+
+while ($row= mysqli_fetch_assoc($getbio))
+{
+	
+$property_name=$row['property_name'];
+$property_value=$row['property_value'];
+$hide_status=$row['hide_status'];
+
+if($hide_status=="off")
+{
+echo "<b>$property_name : </b>". $property_value. "<br/>";
+}
+
+}
+
+?>
 
 <div class="textHeader"><?php echo $username;?>'s Friends</div>
 <div class="profileleftSideContent">

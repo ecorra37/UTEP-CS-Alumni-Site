@@ -74,7 +74,7 @@ $getquery=mysqli_query($con,$query);
 	    
    
 	
-    echo '<form action="test.php" method="post">'; 
+  
 	echo '<div class="view_messages">'; 
             echo '<table border="2">';
           
@@ -104,36 +104,20 @@ $hide_status=$row['hide_status'];
 		echo '<tr>';
 		echo '<td><b>' . $property_name. '</b></td>';
 		echo '<td>'. $property_value . '</td>';
-
+  echo '<form action="test.php" method="post">'; 
 		if($hide_status=="on")
 		{
-		echo "<td><input type='checkbox' id='hide_status' name='hide_status' value='1' checked/></td>";
+		echo "<td><input type='checkbox' id='hide_status' name='hide_status' checked/></td>";
 		
 		}
 		else
 		{
-		echo "<td><input type='checkbox' id='hide_status' name='hide_status' value='0'></td>";
+		echo "<td><input type='checkbox' id='hide_status' name='hide_status'></td>";
 		} 
 		
-	/*
-		
-		 if (strcasecmp($hide_status, "on") == 0)
-                        {
-        echo "<td><input type='radio' name='hide_status' value='Hide' checked> Hide <input type='radio' name='hide_status' value='Unhide' > Unhide  
-					</td>";
-					
-                        }
-                        else
-                        {
-         echo "<td><input type='radio' name='hide_status' value='Hide'> Hide <input type='radio' name='hide_status' value='Unhide' checked> Unhide  
-					</td>";
-					
-					}
-					
-					*/
-		
+	
 		echo '<td>';
-echo '<input type="hidden" name="property_name"  value='.$property_name.'>'; 
+
 echo "<input type='submit' name='profile_settings'  value='Update $property_name''>"; 
  
 
