@@ -1,13 +1,13 @@
  <?php
  include('include/db.php');
- include('include/dbEC.php');
 session_start();
 
-if(!$configSite->CheckLogin()){
-	$configSite->RedirectToURL("./access_denied.php");
+if (!(isset($_SESSION['login_status']))) {
+
+header ("Location: access_denied.php");
 }
 
-($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
+$login_user= $_SESSION['login_user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,12 +26,27 @@ if(!$configSite->CheckLogin()){
 <body>
 
 <div id="navigation_container">
-<?php include './menu.php';?>
+         <div class="rectangle">
+        <ul id="navigation">
+
+            <li><a href="index.php"><span id="highlight">Home</span></a></li>
+            <li><a href="Store.php">Store</a></li>
+            <li><a href="Find.php">Find Graduate</a></li>
+            <li><a href="About.php">About Us</a></li>
+                       <?php if ((isset($_SESSION['login_status']))) {
+?>
+
+            <li> <a href="loginprofile.php"">Profile</a></li>
+              <li> <a href="signout.php">Sign Out</a></li>
+        </ul>
+    </div>
+<?php }?>
 </div>
  <div id="welcome">
             <p>
 
             Welcome <?php echo "<b>" .$login_user. "</b>"; ?>
+
 </p></div>
 
  <?php  
@@ -89,22 +104,6 @@ if(!$configSite->CheckLogin()){
                 echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> You rejected your friend request</P></br>";  
               }
               }
-			  
-              ?>
-			  <?php  
-              if (isset($_GET['$f_status']))
-              {
-              $Message = $_GET['$f_status'];
-              if($Message=="true")
-              {
-                  echo "<p style='color:green; font-size: 11pt;font-weight: bold;'> Your friend request sent</P></br>";
-              }
-              else 
-              {
-                echo "<p style='color:red; font-size: 11pt;font-weight: bold;'> Problem in sending</P></br>";  
-              }
-              }
-	
               ?>
 <div id="view_list">
 <a href="friend_requests.php" >View Friend Requests</a>
@@ -115,8 +114,8 @@ if(!$configSite->CheckLogin()){
 </div>
 <?php
 	// to show login user profile
-	$username = $login_user;
-    $_SESSION['profile_user'] = $username; 
+	$username=$login_user;
+    $_SESSION['profile_user']=$username; 
 
 if(ctype_alnum($username))
 {
@@ -136,21 +135,34 @@ $username=$get['username'];
 $fname=$get['first'];
 $lname=$get['last'];
 $bio = $get['bio_data'];
-
+$profile_pic_db = $get['profile_pic'];
 //echo "user exist";
-} else {
+}
+
+else
+{
 echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.php\">";
 exit();
 }
+//Check whether the user has uploaded a profile pic or not
+
+  if ($profile_pic_db == "") {
+  $profile_pic = "img/default_pic.jpg";
+  }
+  else
+  {
+  $profile_pic = $profile_pic_db;
+  }
+$_SESSION['profile_pic']=$profile_pic;
 }
 
 
 // function to sanitize the user input
 function sanitizeString($var)
 {
-    $var = stripcslashes($var);
-    $var = strip_tags($var);
-    $var = htmlentities($var);
+    $var=  stripcslashes($var);
+    $var=  strip_tags($var);
+    $var=  htmlentities($var);
     return $var;
 }
 ?>
@@ -189,7 +201,7 @@ echo " <div class='posted_by'> $added_by  $date_added </div>&nbsp;&nbsp;$body<br
 
 
 </div>
-<img src="./img/ice1.jpg" height="200" width="200" alt="<?php echo $username;?>'s profile" title="<?php echo $username;?>'s profile"/>
+<img src="<?php echo $profile_pic; ?>" height="200" width="200" alt="<?php echo $username; ?>'s Profile" title="<?php echo $username; ?>'s Profile" />
 <br/>
 
 
@@ -205,11 +217,11 @@ echo "<b>Last Name : </b>". $lname. "<br/>";
 
 
 $getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
-$getbio=mysqli_query($con, $getquery);
+$getbio=mysqli_query($con,$getquery);
 
-while ($row = mysqli_fetch_assoc($getbio))
+while ($row= mysqli_fetch_assoc($getbio))
 {
-
+	
 $property_name=$row['property_name'];
 $property_value=$row['property_value'];
 $hide_status=$row['hide_status'];
@@ -239,9 +251,14 @@ if($count==0)
 {
 	echo "You have no friends";
 	
-} else {
+}
+else
+{
+	
+	
 while ($row= mysqli_fetch_assoc($getquery))
 {
+	
 	$loginuser_from= $row['user_id_from'];
 	$loginuser_to= $row['user_id_to'];
 	
@@ -249,18 +266,23 @@ while ($row= mysqli_fetch_assoc($getquery))
 	if($loginuser_from!=$login_user)
 	{
 		$fn=$loginuser_from;
-		//$fn => friend name
-		//based off the $fn we get the profile and display in friends_profile.php file.
 	echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
 	}
 		if($loginuser_to!=$login_user)
 	{
 		$fn=$loginuser_to;
-		echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
+	echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
 	}
+	
+	
 }
 }
+	
 ?>
+
+
 </div>
+
+
 </body>
 </html>

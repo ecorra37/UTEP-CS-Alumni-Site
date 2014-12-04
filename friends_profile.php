@@ -1,13 +1,13 @@
 <?php
  include('include/db.php');
- include('include/dbEC.php');
 session_start();
 
-if(!$configSite->CheckLogin()){
-	$configSite->RedirectToURL("./access_denied.php");
+if (!(isset($_SESSION['login_status']))) {
+
+header ("Location: access_denied.php");
 }
 
-($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
+$login_user= $_SESSION['login_user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,10 +46,15 @@ if(!$configSite->CheckLogin()){
 if(!isset($_GET['u']))
 {
 	// to show login user profile
-	$username = $login_user;
+	$username=$login_user;
     $_SESSION['profile_user']=$username; 
-
+/* if($login_user==$_SESSION['profile_user'])
+{
+	 //header("Location: loginprofile.php);
 }
+*/
+}
+
 else
 {   // to show friend profile
 	$username=sanitizeString($_GET['u']);
@@ -73,12 +78,22 @@ $username=$get['username'];
 $fname=$get['first'];
 $lname=$get['last'];
 $bio = $get['bio_data'];
+$profile_pic_db =$get['profile_pic'];
 }
 else
 {
 echo "<meta http-equiv=\"refresh\" content=\"0; url=http://localhost/alumni/index.html\">";
 exit();
 }
+//Check whether the user has uploaded a profile pic or not
+
+  if ($profile_pic_db == "") {
+  $profile_pic = "img/default_pic.jpg";
+  }
+  else
+  {
+  $profile_pic = "$profile_pic_db";
+  }
 }
 
 
@@ -125,31 +140,27 @@ echo " <div class='posted_by'> $added_by  $date_added </div>&nbsp;&nbsp;$body<br
 
 
 </div>
-<img src="./img/ice1.jpg" height="200" width="200" alt="<?php echo $username;?>'s profile" title="<?php echo $username;?>'s profile"/>
+<img src="<?php echo $profile_pic; ?>" height="200" width="200" alt="<?php echo $username; ?>'s Profile" title="<?php echo $username; ?>'s Profile" />
 <br/>
-<?php //if($login_user==$_SESSION['profile_user'])
-//{
-	//do nothing
-//}
-//else
-//{ // show add frind and send message buttons
-//echo "$msg";	
+<?php 
+
+ // show add frind and send message buttons
+
 
 	
 $getquery= "select * from friend_requests WHERE user_id_from='$username' and user_id_to='$login_user'";
 
 $newuser=mysqli_query($con,$getquery);
-$count = 0;
-if($getquery != null){ $count = mysqli_num_rows($newuser);}
 
+$count=  mysqli_num_rows($newuser);
       
 if($count==0)
 {
-	echo "<form action ='send_request.php' method='POST'>";
+	/*echo "<form action ='send_request.php' method='POST'>";
 	echo "<input type='hidden' name='add_request' value=''>";
 	echo "<input type='submit' name='addFriend' value='Add Friend'/>";
 	echo "</form>";
-	
+	*/
 	echo "<br/>";
 	echo "<form action='send_message.php'>";
 	echo "<input type='submit' name='sendmsg' value='Send Message'/>";
@@ -164,7 +175,8 @@ echo "</form>";
 echo "<br/>";
 
 }
-//}
+
+
 ?>
 
 <div class="textHeader"><?php echo $username;?>'s Profile</div>
