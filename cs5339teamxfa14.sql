@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `quantity` int(15) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `item_pic` varchar(30) NOT NULL,
+  `pymt_method` text NOT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
