@@ -54,7 +54,7 @@
 					$profile_pic_db =$get['profile_pic'];
 				} else {
 					//echo "<meta http-equiv=\"refresh\" content=\"2; url=./index.php\">";
-					//$configSite->redirectToURL("./noProfile.php");
+					$configSite->redirectToURL("./noProfile.php");
 					exit();
 				}
 				
