@@ -12,7 +12,7 @@ function toggle() {
 		text.innerHTML = "Login";
   	} else {
 		ele.style.display = "block";
-		text.innerHTML = "Account";
+		text.innerHTML = "Login";
 	}
 } 
 </script>
