@@ -64,17 +64,9 @@ $date_added = date("y-m-d");
     // echo "Friend request rejected";
 	  $frnd_status = "false";
         header("Location: loginprofile.php?frnd_status=".$frnd_status);
-    }
- else 
-        
- {
+    } else {
      //do nothing
 	     echo "Problem with updation. Please try again";
- }
-
-
 }
-  
-
-
+}
 ?> 
