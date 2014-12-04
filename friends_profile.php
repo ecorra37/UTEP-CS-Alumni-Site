@@ -19,13 +19,12 @@
 		<script src="js/main.js"></script>
 	</head>
 	
-	<body>
+	<body id="pageMiddle">
 		<div id="navigation_container">
 			<?php include './menu.php';?>
 		</div>
 
 		<?php
-			echo $_GET['u'] . " the get";
 			if(!isset($_GET['u'])){
 				// to show login user profile
 				$username = $login_user;
@@ -34,7 +33,6 @@
 					//header("Location: loginprofile.php);
 				}
 				*/
-				echo "inside isset get";
 			} else {
 				// to show friends profile
 				$username = sanitizeString($_GET['u']);
@@ -47,7 +45,6 @@
 				$result = mysqli_query($con, $query);
 				$count = mysqli_num_rows($result);
 				
-				echo $count;
 				if($count == 1){
 					$get = mysqli_fetch_assoc($result);
 					$username = $get['username'];
@@ -57,7 +54,7 @@
 					$profile_pic_db =$get['profile_pic'];
 				} else {
 					//echo "<meta http-equiv=\"refresh\" content=\"2; url=./index.php\">";
-					$configSite->redirectToURL("./noProfile.php");
+					//$configSite->redirectToURL("./noProfile.php");
 					exit();
 				}
 				
@@ -105,100 +102,88 @@
 		
 		<img src="<?php echo $profile_pic; ?>" height="200" width="200" alt="<?php echo $username; ?>'s Profile" title="<?php echo $username; ?>'s Profile" />
 		<br/>
+		
 		<?php 
-		// show add frind and send message buttons
-		$getquery= "select * from friend_requests WHERE user_id_from='$username' and user_id_to='$login_user'";
+			// show add friend and send message buttons
+			$getquery= "SELECT * FROM friend_requests WHERE user_id_from='$username' AND user_id_to='$login_user'";
 
-		$newuser=mysqli_query($con,$getquery);
+			$newuser = mysqli_query($con,$getquery);
 
-		$count=  mysqli_num_rows($newuser);
+			$count = mysqli_num_rows($newuser);
 
-		if($count==0){
-		/*echo "<form action ='send_request.php' method='POST'>";
-		echo "<input type='hidden' name='add_request' value=''>";
-		echo "<input type='submit' name='addFriend' value='Add Friend'/>";
-		echo "</form>";
-		*/
-		echo "<br/>";
-		echo "<form action='send_message.php'>";
-		echo "<input type='submit' name='sendmsg' value='Send Message'/>";
-		echo "</form>";
-		}
-		else
-		{
-		echo "<br/>";
-		echo "<form action ='send_message.php' method='POST'>";
-		echo "<input type='submit' name='sendmsg' value='Send Message'/>";
-		echo "</form>";
-		echo "<br/>";
-
-		}
-
-
+			if($count == 0){
+				/*echo "<form action ='send_request.php' method='POST'>";
+				echo "<input type='hidden' name='add_request' value=''>";
+				echo "<input type='submit' name='addFriend' value='Add Friend'/>";
+				echo "</form>";
+				*/
+				echo "<br/>";
+				echo "<form action='send_message.php'>";
+					echo "<input type='submit' name='sendmsg' value='Send Message'/>";
+				echo "</form>";
+			} else {
+				echo "<br/>";
+				echo "<form action ='send_message.php' method='POST'>";
+					echo "<input type='submit' name='sendmsg' value='Send Message'/>";
+				echo "</form>";
+				echo "<br/>";
+			}
 		?>
 
 		<div class="textHeader"><?php echo $username;?>'s Profile</div>
 		<div class="profileleftSideContent">
-		<?php
-		// to display profile user data
+			<?php
+				// to display profile user data
+				echo "<b>Bio Data : </b>". $bio. "<br/>";
+				echo "<b>First Name : </b>". $fname. "<br/>";
+				echo "<b>Last Name : </b>". $lname. "<br/>";
 
+				//$getquery= "select * from users WHERE username='$username'";
+				$getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
+				$getbio=mysqli_query($con,$getquery);
 
-		echo "<b>Bio Data : </b>". $bio. "<br/>";
-		echo "<b>First Name : </b>". $fname. "<br/>";
-		echo "<b>Last Name : </b>". $lname. "<br/>";
+				while ($row= mysqli_fetch_assoc($getbio))
+				{
 
-		//$getquery= "select * from users WHERE username='$username'";
-		$getquery= "select * from privacy WHERE user_name='$username' and privacy_field_status='1'";
-		$getbio=mysqli_query($con,$getquery);
+				$property_name=$row['property_name'];
+				$property_value=$row['property_value'];
+				$hide_status=$row['hide_status'];
 
-		while ($row= mysqli_fetch_assoc($getbio))
-		{
-
-		$property_name=$row['property_name'];
-		$property_value=$row['property_value'];
-		$hide_status=$row['hide_status'];
-
-		if($hide_status=="off")
-		{
-		echo "<b>$property_name : </b>". $property_value. "<br/>";
-		}
-		}
-		?>
+				if($hide_status=="off")
+				{
+				echo "<b>$property_name : </b>". $property_value. "<br/>";
+				}
+				}
+			?>
+		</div>
 
 		<div class="textHeader"><?php echo $username;?>'s Friends</div>
 		<div class="profileleftSideContent">
+			<?php
+				$query= "SELECT * FROM friend_requests WHERE (user_id_to='$username' AND request_status='1') OR (user_id_from='$username' AND request_status='1') ";
 
-		<?php
-		$query= "select * from friend_requests WHERE (user_id_to='$username' and request_status='1') or (user_id_from='$username' and request_status='1') ";
+				$getquery = mysqli_query($con, $query);
+				$count = mysqli_num_rows($getquery);
 
-		$getquery=mysqli_query($con,$query);
-		$count = mysqli_num_rows($getquery);
+				if($count == 0){
+					echo "No friends to display";
+				} else {
+					while ($row= mysqli_fetch_assoc($getquery)){
+						$loginuser_from = $row['user_id_from'];
+						$loginuser_to = $row['user_id_to'];
 
-		if($count==0)
-		{
-		echo "No friends to display";
-		}
-		else
-		{
-		while ($row= mysqli_fetch_assoc($getquery))
-		{
-		$loginuser_from= $row['user_id_from'];
-		$loginuser_to= $row['user_id_to'];
-
-
-		if($loginuser_from!=$username)
-		{
-		$fn=$loginuser_from;
-		echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
-		}
-		if($loginuser_to!=$username)
-		{
-		$fn=$loginuser_to;
-		echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
-		}	
-		}
-		}	
-		?>
+						if($loginuser_from!=$username){
+							$fn = $loginuser_from;
+							echo "<a href='friends_profile.php?u=$fn'>$loginuser_from</a> <br/>";
+						}
+						
+						if($loginuser_to!=$username){
+							$fn = $loginuser_to;
+							echo "<a href='friends_profile.php?u=$fn'>$loginuser_to</a> <br/>";
+						}	
+					}
+				}	
+			?>
 		</div>
 	</body>
 </html>
