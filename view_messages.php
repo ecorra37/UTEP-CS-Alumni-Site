@@ -1,5 +1,6 @@
 <?php
 	include('include/db.php');
+	include('include/dbEC.php');
 	session_start();
 
 	if(!$configSite->Checklogin()){
