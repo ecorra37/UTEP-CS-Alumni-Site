@@ -48,14 +48,18 @@ else {
 				<th>Description</th>
 				<th>Price</th>
 				<th>Picture</th>
+				<th>Payment Method</th>
 				
 			</tr>
 				<?php
 				$db = 'cs5339teamxfa14';
 				require('mysqli_con.php');
+				
 				$query 	= 'SELECT * FROM items ORDER BY category ASC';
 				$result = mysqli_query($con,$query);
 				while($row =  mysqli_fetch_assoc($result)){
+					$in_stock = 0;
+					if ($row['quantity']>0){
 				?>
 			<tr>
 				<td><?php echo $row['item_id']?></td>
@@ -63,17 +67,15 @@ else {
 				<td><?php echo $row['product_name']?></td>
 				<td><?php echo $row['description']?></td>
 				<td><?php echo '$'.$row['price']?></td>
-				<td><?php echo '<img src="img\\'.$row['item_pic'].'" heigth=80px  width=80px>';?></td>
-				<td><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="TZ4CXKB7DJARU">
-						<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" width='100' height='30' border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-				</td>
+				<td><?php echo '<img src="tmp\\'.$row['item_pic'].'" heigth=100px  width=100px>';?></td>
+				<td><?php echo $row['pymt_method']?></td>
 			</tr>
 				<?php
+					++$in_stock;
+					echo '<span style="color:red;"><b>'.(4-$in_stock).'</b> item(s) out of stock. Sorry!</span>';
+					}//replace 4 by a variable that hosts the total number of items 
 				}
+				echo($in_stock > 4 ? 'ALL ITEMS FOR SALE ARE OUT OF STOCK!' : NULL);
 				?>
 		</table>
         </div>
