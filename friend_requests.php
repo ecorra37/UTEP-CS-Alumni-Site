@@ -38,26 +38,24 @@
 		<div id="pageMiddle">
 			<?php
 				$user_from = '';
-				$query= "SELECT * FROM friend_requests WHERE user_id_to='$login_user' AND request_status='0'";
+				$query = "SELECT * FROM friend_requests WHERE user_id_to='$login_user' AND request_status='0';";
 				//echo $login_user;
-				$getquery=mysqli_query($con, $query);
+				$getquery = mysqli_query($con, $query);
 				$count = mysqli_num_rows($getquery);
 
 				if($count==0){
-				echo "You have no friend requests at this time";
+					echo "You have no friend requests at this time";
 				} else {
-				while ($row= mysqli_fetch_assoc($getquery)){
-				$user_from = $row['user_id_from'];?>
-				<div id=frnd_list><p> <b><?php echo $user_from; ?></b>  wants to be your friend</p> 
-				<form action="f_request.php" method="post"> 
-				<input type="submit" name="accept"  value="Accept <?php echo $user_from;?>">   
-				<input type="submit" name="reject"  value="Reject <?php echo $user_from;?>"> 
-
-				<?php }
-				echo '</form>';
-				echo '</div> ';
-				}
-			?>
+					while ($row= mysqli_fetch_assoc($getquery)){
+						$user_from = $row['user_id_from'];?>
+						<div id=frnd_list><p> <b><?php echo $user_from; ?></b>  wants to be your friend</p> 
+							<form action="f_request.php" method="post"> 
+								<input type="submit" name="accept"  value="Accept <?php echo $user_from;?>">   
+								<input type="submit" name="reject"  value="Reject <?php echo $user_from;?>"> 
+					<?php}?>
+							</form>
+						</div>
+			<?PHP}?>
 		</div>
 	</body>
 </html>

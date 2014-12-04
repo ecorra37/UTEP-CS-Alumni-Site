@@ -119,14 +119,14 @@ INSERT INTO `privacy` (`privacy_id`, `user_id`, `user_name`, `property_name`, `p
 (7, 0, 'hima', 'Address', '1700 utep', 'off', '0', '2014-12-04'),
 (8, 0, 'hima', 'bio_data', 'hi welcome to my profile', 'off', '0', '2014-12-02'),
 (9, 0, 'hima', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(10, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(11, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(12, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(13, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(14, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(15, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(16, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
-(17, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
+(10, 7, 'ecorral2', 'Email', 'htest@test.com', 'off', '1', '2014-12-04'),
+(11, 7, 'ecorral2', 'fname', 'Hima', 'off', '0', '2014-12-02'),
+(12, 7, 'ecorral2', 'lname', 'Kondepati', 'off', '0', '2014-12-02'),
+(13, 7, 'ecorral2', 'title', 'Miss', 'off', '0', '2014-12-02'),
+(14, 7, 'ecorral2', 'Gender', 'f', 'on', '1', '2014-12-04'),
+(15, 7, 'ecorral2', 'City', 'el paso', 'off', '1', '2014-12-04'),
+(16, 7, 'ecorral2', 'Address', '1700 utep', 'off', '0', '2014-12-04'),
+(17, 7, 'ecorral2', 'bio_data', 'hi welcome to my profile', 'off', '0', '2014-12-02'),
 (18, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02');
 
 DROP TABLE IF EXISTS `users`;
@@ -159,7 +159,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `first`, `last`
 (4, 'hari', md5(1), 'ha@test.com', 'hfirst', 'hlast', 'Mr', 'f', 'el paso', '1700', 'hi this is hari', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
 (5, 'siri', md5(1), 's@test.com', 'stest', 'slast', 'Ms', 'f', 'el paso', '1700', 'siri''s profile', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
 (6, 'mike', md5(1), 'mike@test.com', 'mfirst', 'mlast', NULL, 'm', 'el paso', '1700 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
-(7, 'ecorral2', md5(1), 'ecorral2@test.com', 'Eduardo', 'Corral', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
+(7, 'ecorral2', md5(1), 'ecorral2@test.com', 'Eduardo', 'Corral', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
+(8, 'chad', md5(1), 'chad@test.com', 'Chad', 'Doe', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
 
 DROP TABLE IF EXISTS `user_posts`;
 CREATE TABLE IF NOT EXISTS `user_posts` (

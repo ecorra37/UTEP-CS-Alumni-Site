@@ -1,3 +1,11 @@
+<?php
+	include('include/dbEC.php');
+
+	if(!$configSite->Checklogin()){
+		$configSite->redirectToURL("./access_denied.php");
+	}
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -15,7 +23,14 @@ and open the template in the editor.
 			<?php include './menu.php';?>
 		</div>
 		<div id="pageMiddle">
-			<?php echo "Your not authorized to access this page. Click 'LOGIN'"; ?>
+			<div>
+				<?php echo "Sorry! User Does Not Have a Profile. Search Again."; ?>
+			</div>
+			<br/><br/>
+			<div>
+				<?PHP include './search.php'; ?>
+			</div>
 		</div>
+		
 	</body>
 </html>

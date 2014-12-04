@@ -1,9 +1,3 @@
-<?php
-	/*include('include/dbEC.php');
-	session_start();
-	isset($_SESSION['login_user']) ? $login_user = $_SESSION['login_user'] :  $configSite->RedirectToURL('./index.php');*/
-?>
-
 <html>
 	<head lang="en">
 		<meta charset="UTF-8">
@@ -15,7 +9,7 @@
 		<div id="navigation_container">
 			<?PHP include './menu.php' ?>
 		</div>
-		<div class="main_content">
+		<div id="pageMiddle">
 			<div>
 				<?PHP include './search.php'; ?>
 			</div>

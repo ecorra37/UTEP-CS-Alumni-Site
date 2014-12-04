@@ -12,8 +12,9 @@ class ConfigSite{
 	var $tablename3; /*items*/
 	var $tablename4; /*master*/
 	var $tablename5; /*messages*/
-	var $tablename6; /*user_posts*/
-	var $tablename7; /*users*/
+	var $tablename6; /*privacy*/
+	var $tablename7; /*users_posts*/
+	var $tablename8; /*users*/
 	var $connection; /**/
 	var $rand_key = '5qts9W3JvI';   /**/
 
@@ -22,7 +23,7 @@ class ConfigSite{
     /*----(Start) Initialization----*/
     function ConfigSite(){ }
     
-    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3, $tablename4, $tablename5, $tablename6, $tablename7){
+    function InitDB($host, $uname, $pwd, $database, $tablename1, $tablename2, $tablename3, $tablename4, $tablename5, $tablename6, $tablename7, $tablename8){
         $this->db_host    = $host;
         $this->username   = $uname;
         $this->pwd        = $pwd;
@@ -34,6 +35,7 @@ class ConfigSite{
         $this->tablename5 = $tablename5;   
         $this->tablename6 = $tablename6;   
         $this->tablename7 = $tablename7;
+        $this->tablename8 = $tablename8;
     }
     /*----(End) Initialization----*/
 	
@@ -165,7 +167,7 @@ class ConfigSite{
 		
 		$username = $this->SanitizeForSQL($username);
 		$pwdmd5 = md5($password);
-		$qry = "SELECT first, last, email, username FROM $this->tablename7 WHERE username = '$username' AND password = '$pwdmd5'";
+		$qry = "SELECT first, last, email, username FROM $this->tablename8 WHERE username = '$username' AND password = '$pwdmd5'";
 
 		$result = mysql_query($qry, $this->connection);
 

@@ -7,7 +7,7 @@
 		$configSite->redirectToURL("./access_denied.php");
 	}
 
-	($configSite->userName() == NULL) ? $login_user = " no username" : $login_user = $configSite->userName();
+	($configSite->userName() == NULL) ? $login_user = " " : $login_user = $configSite->userName();
 
 	if(isset($_POST['profile_settings'])){
 		$property_name = (isset($_POST['profile_settings']) ? $_POST['profile_settings'] : null);

@@ -1,9 +1,5 @@
-.main-content{
-	;
-}
-
 #pageMiddle {
-height: 530px;
+height: auto;
 width: 1000px;
 margin: 0px auto;
 }
