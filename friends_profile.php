@@ -105,13 +105,14 @@
 		
 		<?php 
 			// show add friend and send message buttons
-			$getquery= "SELECT * FROM friend_requests WHERE user_id_from='$username' AND user_id_to='$login_user'";
+			$getquery= "SELECT * FROM friend_requests WHERE user_id_from='$login_user' AND user_id_to='$username' and request_status='1'";
 
 			$newuser = mysqli_query($con,$getquery);
 
 			$count = mysqli_num_rows($newuser);
 
 			if($count == 0){
+			
 				echo "<form action ='send_request.php' method='POST'>";
 					echo "<input type='submit' name='addFriend' value='Add Friend'/>";
 				echo "</form>";
@@ -121,6 +122,10 @@
 					echo "<input type='submit' name='sendmsg' value='Send Message'/>";
 				echo "</form>";
 			} else {
+				
+				
+				
+				
 				echo "<br/>";
 				echo "<form action ='send_message.php' method='POST'>";
 					echo "<input type='submit' name='sendmsg' value='Send Message'/>";

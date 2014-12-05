@@ -127,7 +127,16 @@ INSERT INTO `privacy` (`privacy_id`, `user_id`, `user_name`, `property_name`, `p
 (15, 7, 'ecorral2', 'City', 'el paso', 'off', '1', '2014-12-04'),
 (16, 7, 'ecorral2', 'Address', '1700 utep', 'off', '0', '2014-12-04'),
 (17, 7, 'ecorral2', 'bio_data', 'hi welcome to my profile', 'off', '0', '2014-12-02'),
-(18, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02');
+(18, 7, 'ecorral2', 'employeement', 'n', 'off', '0', '2014-12-02'),
+(19, 9, 'gerardo', 'Email', 'htest@test.com', 'off', '1', '2014-12-04'),
+(20, 9, 'gerardo', 'fname', 'Hima', 'off', '0', '2014-12-02'),
+(21, 9, 'gerardo', 'lname', 'Kondepati', 'off', '0', '2014-12-02'),
+(22, 9, 'gerardo', 'title', 'Miss', 'off', '0', '2014-12-02'),
+(23, 9, 'gerardo', 'Gender', 'f', 'on', '1', '2014-12-04'),
+(24, 9, 'gerardo', 'City', 'el paso', 'off', '1', '2014-12-04'),
+(25, 9, 'gerardo', 'Address', '1700 utep', 'off', '0', '2014-12-04'),
+(26, 9, 'gerardo', 'bio_data', 'hi welcome to my profile', 'off', '0', '2014-12-02'),
+(27, 9, 'gerardo', 'employeement', 'n', 'off', '0', '2014-12-02');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
@@ -160,7 +169,8 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `first`, `last`
 (5, 'siri', md5(1), 's@test.com', 'stest', 'slast', 'Ms', 'f', 'el paso', '1700', 'siri''s profile', 'u', NULL, '2014-12-01', '2014-12-01', '0', NULL, NULL),
 (6, 'mike', md5(1), 'mike@test.com', 'mfirst', 'mlast', NULL, 'm', 'el paso', '1700 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
 (7, 'ecorral2', md5(1), 'ecorral2@test.com', 'Eduardo', 'Corral', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
-(8, 'chad', md5(1), 'chad@test.com', 'Chad', 'Doe', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
+(8, 'chad', md5(1), 'chad@test.com', 'Chad', 'Doe', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL),
+(9, 'gerardo', md5(1), 'gerardo@test.com', 'Gerardo', 'Carbajal', NULL, 'm', 'el paso', '1 utep', 'test', 'u', NULL, NULL, NULL, '0', NULL, NULL);
 
 DROP TABLE IF EXISTS `user_posts`;
 CREATE TABLE IF NOT EXISTS `user_posts` (

@@ -3,7 +3,7 @@
 
 	$configSite = new ConfigSite();
 
-	$configSite->InitDB(/*hostname*/'earth.cs.utep.edu',
+	$configSite->InitDB(/*hostname*/'localhost',
 						/*username*/'cs5339team9fa14',
 						/*password*/'cs5339!cs5339team9fa14',
 						/*database name*/'cs5339team9fa14',

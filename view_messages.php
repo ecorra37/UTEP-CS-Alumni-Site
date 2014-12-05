@@ -43,7 +43,7 @@
 						echo '<th>M.No</th>';
 						echo '<th>Message From</th>';
 						echo '<th>Message Date</th>';
-						echo '<th>Message Status</th>';
+						//echo '<th>Message Status</th>';
 						echo '<th>View</th>';
 						$i = 1;		
 						while($row = mysqli_fetch_assoc($getquery)){
@@ -56,7 +56,7 @@
 								echo '<td>' . $i . '</td>';
 								echo '<td>' . $msg_by . '</td>';
 								echo '<td>' . $msg_post_date. '</td>';
-								echo '<td>' . $msg_status. '</td>';
+								//echo '<td>' . $msg_status. '</td>';
 								echo '<td>' . $msg_body. ' </td>';
 							echo '</tr>';
 

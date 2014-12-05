@@ -67,7 +67,7 @@ else {
 				<td><?php echo $row['product_name']?></td>
 				<td><?php echo $row['description']?></td>
 				<td><?php echo '$'.$row['price']?></td>
-				<td><?php echo '<img src="tmp\\'.$row['item_pic'].'" heigth=100px  width=100px>';?></td>
+				<td><?php echo '<img src="img\\'.$row['item_pic'].'" heigth=100px  width=100px>';?></td>
 				<td><?php echo $row['pymt_method']?></td>
 			</tr>
 				<?php
