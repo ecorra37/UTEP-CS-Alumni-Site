@@ -52,9 +52,9 @@
 							<form action="f_request.php" method="post"> 
 								<input type="submit" name="accept"  value="Accept <?php echo $user_from;?>">   
 								<input type="submit" name="reject"  value="Reject <?php echo $user_from;?>">
-							</form>
-						</div>
 				<?php }
+				echo '</form>';
+				echo '</div>';
 			} ?>
 		</div>
 	</body>

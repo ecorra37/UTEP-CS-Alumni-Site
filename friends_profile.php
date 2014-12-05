@@ -105,7 +105,7 @@
 		
 		<?php 
 			// show add friend and send message buttons
-			$getquery= "SELECT * FROM friend_requests WHERE user_id_from='$username' AND user_id_to='$login_user' and request_status='1'";
+			$getquery= "SELECT * FROM friend_requests WHERE user_id_from='$username' AND user_id_to='$login_user' ";
 
 			$newuser = mysqli_query($con,$getquery);
 
